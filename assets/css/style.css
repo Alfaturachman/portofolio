@@ -539,13 +539,9 @@ section {
 }
 
 /* About Section */
-#about {
-    background: var(--slate-800);
-}
-
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     align-items: start;
 }
@@ -560,10 +556,11 @@ section {
     margin-bottom: 20px;
 }
 
+/* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
 }
 
 .skill-card {
@@ -581,14 +578,16 @@ section {
     box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
 }
 
+.skill-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
 .skill-card h4 {
     color: var(--teal-400);
     font-size: 16px;
     margin-top: 10px;
-}
-
-#experience {
-    background: var(--slate-800);
 }
 
 /* Experience Section */
@@ -673,10 +672,6 @@ section {
 }
 
 /* Projects Section */
-#projects {
-    background: var(--slate-800);
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -684,6 +679,9 @@ section {
 }
 
 .project-card {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
     background: var(--slate-900);
     border-radius: 12px;
     overflow: hidden;
@@ -699,13 +697,16 @@ section {
 
 .project-image {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--slate-700), var(--slate-800));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    color: var(--teal-400);
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--slate-800);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .project-content {
@@ -741,21 +742,21 @@ section {
     transition: all 0.3s ease;
 }
 
-.link-demo {
+.link-github {
     background: var(--teal-500);
     color: white;
 }
 
-.link-demo:hover {
+.link-github:hover {
     background: var(--teal-600);
 }
 
-.link-github {
+.link-demo {
     border: 2px solid var(--slate-700);
     color: var(--slate-300);
 }
 
-.link-github:hover {
+.link-demo:hover {
     border-color: var(--teal-500);
     color: var(--teal-400);
 }
@@ -982,5 +983,9 @@ footer p {
 
     .typing-text {
         text-align: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
