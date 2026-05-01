@@ -35,7 +35,6 @@ Welcome to my personal portfolio repository! This website is a showcase of my jo
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![MySQL](https://img.shields.logo/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
 ---
 
