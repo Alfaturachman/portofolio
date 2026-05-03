@@ -328,29 +328,21 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 20px;
+                height: clamp(1.5rem, 4vw, 2.5rem);
                 margin-bottom: 32px;
-                flex-wrap: wrap;
-            }
-            .hero-role-wrapper .stroke-text {
-                -webkit-text-stroke: 1px var(--text-primary);
-                font-size: clamp(1rem, 3vw, 1.8rem);
-                font-weight: 800;
-                color: transparent;
-                letter-spacing: 0.05em;
-            }
-            .role-separator {
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                background: var(--text-muted);
-                opacity: 0.5;
+                position: relative;
+                overflow: hidden;
             }
             .role-text {
+                position: absolute;
                 font-size: clamp(1rem, 3vw, 1.8rem);
                 font-weight: 500;
                 color: var(--text-secondary);
                 letter-spacing: 0.05em;
+                opacity: 0;
+                transform: translateY(30px);
+                visibility: hidden;
+                white-space: nowrap;
             }
             .hero-sub {
                 font-size: clamp(1rem, 2vw, 1.25rem);
@@ -408,52 +400,6 @@
                 color: var(--accent-blue);
                 transform: translateY(-5px);
                 background: var(--accent-blue-soft);
-            }
-            .hero-scroll {
-                position: absolute;
-                bottom: 40px;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                font-size: 0.7rem;
-                font-weight: 600;
-                color: var(--text-muted);
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                z-index: 10;
-            }
-            .scroll-line {
-                width: 2px;
-                height: 60px;
-                background: linear-gradient(
-                    to bottom,
-                    var(--accent-blue),
-                    transparent
-                );
-                position: relative;
-                overflow: hidden;
-            }
-            .scroll-line::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: white;
-                animation: scrollAnim 2s cubic-bezier(0.77, 0, 0.175, 1)
-                    infinite;
-            }
-            @keyframes scrollAnim {
-                0% {
-                    transform: translateY(-100%);
-                }
-                100% {
-                    transform: translateY(100%);
-                }
             }
 
             /* Section commons */
@@ -753,18 +699,15 @@
                 width: 100%;
                 aspect-ratio: 16/9;
                 border-radius: 12px;
-                background: linear-gradient(
-                    135deg,
-                    rgba(59, 91, 219, 0.12),
-                    rgba(26, 22, 16, 0.08)
-                );
+                background: var(--bg-secondary);
                 margin-bottom: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2.5rem;
-                color: var(--accent-blue);
                 overflow: hidden;
+            }
+            .project-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
             }
             .project-title {
                 font-family: 'Outfit', sans-serif;
@@ -865,17 +808,15 @@
                 width: 100%;
                 aspect-ratio: 16/9;
                 border-radius: 16px;
-                background: linear-gradient(
-                    135deg,
-                    rgba(59, 91, 219, 0.12),
-                    rgba(26, 22, 16, 0.06)
-                );
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 4rem;
-                color: var(--accent-blue);
+                overflow: hidden;
+                background: var(--bg-secondary);
                 margin-bottom: 28px;
+            }
+            .modal-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
             }
             .modal-title {
                 font-family: 'Outfit', sans-serif;
@@ -1360,9 +1301,9 @@
                 </h1>
 
                 <div class="hero-role-wrapper">
-                    <span class="stroke-text">SOFTWARE DEVELOPER</span>
-                    <span class="role-separator"></span>
-                    <span class="role-text">DATA ENGINEER</span>
+                    <span class="role-text">SOFTWARE DEVELOPER</span>
+                    <span class="role-text">ARTIFICIAL INTELLIGENCE</span>
+                    <span class="role-text">MACHINE LEARNING</span>
                 </div>
 
                 <p class="hero-sub">
@@ -1383,11 +1324,6 @@
                         <span>About me</span>
                     </a>
                 </div>
-            </div>
-
-            <div class="hero-scroll">
-                <div class="scroll-line"></div>
-                <span>Discover</span>
             </div>
         </section>
 
@@ -1439,7 +1375,7 @@
                             </h3>
                             <p class="about-bio">
                                 I am a
-                                <strong>Software & Data Developer</strong>
+                                <strong>Software Developer</strong>
                                 focused on developing AI and machine
                                 learning-based solutions. With a strong
                                 background in backend, data analysis, and
@@ -1448,15 +1384,15 @@
                             </p>
                             <p class="about-bio" style="margin-top: 16px">
                                 Currently actively exploring
-                                <strong>MLOps, intelligent systems</strong>, and
-                                the best ways to integrate AI into scalable
-                                digital products.
+                                <strong
+                                    >DevOps, Artificial Intelligence, and
+                                    Machine Learning.</strong
+                                >
                             </p>
                             <div class="tag-row" style="margin-top: 24px">
-                                <span class="tag">Data Analyst</span>
-                                <span class="tag">AI Engineer</span>
+                                <span class="tag">Software Developer</span>
+                                <span class="tag">Artificial Intelligence</span>
                                 <span class="tag">Machine Learning</span>
-                                <span class="tag">Fullstack Developer</span>
                                 <span class="tag">DevOps</span>
                             </div>
                         </div>
@@ -1780,7 +1716,7 @@
                     <div class="timeline-item" data-aos="fade-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass">
-                            <div class="timeline-date">2023 — Present</div>
+                            <div class="timeline-date">2025 — Present</div>
                             <div class="timeline-title">
                                 Data & AI Developer
                             </div>
@@ -1803,7 +1739,7 @@
                     >
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass">
-                            <div class="timeline-date">2022 — 2023</div>
+                            <div class="timeline-date">2024 — 2025</div>
                             <div class="timeline-title">
                                 Web Developer Intern
                             </div>
@@ -1875,149 +1811,8 @@
             <div class="section-max">
                 <div class="section-eyebrow">Portfolio</div>
                 <h2 class="section-title">Projects I have<br />worked on</h2>
-                <div class="portfolio-grid">
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        onclick="openModal(0)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">📊</div>
-                        <div class="project-title">
-                            Sales Analytics Dashboard
-                        </div>
-                        <p class="project-desc">
-                            Real-time sales data visualization platform with
-                            multi-dimensional filtering and automated reports.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Laravel</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Chart.js</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                        onclick="openModal(1)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">🤖</div>
-                        <div class="project-title">
-                            ML Churn Prediction System
-                        </div>
-                        <p class="project-desc">
-                            Machine learning model to predict customer churn
-                            with 89% accuracy using XGBoost.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">XGBoost</span>
-                            <span class="project-tag">FastAPI</span>
-                            <span class="project-tag">Pandas</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="160"
-                        onclick="openModal(2)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">📱</div>
-                        <div class="project-title">
-                            Inventory Management App
-                        </div>
-                        <p class="project-desc">
-                            Mobile app for stock management with barcode scanner
-                            and real-time report features.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Kotlin</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">REST API</span>
-                            <span class="project-tag">Laravel</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                        onclick="openModal(3)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">🧠</div>
-                        <div class="project-title">NLP Sentiment Analyzer</div>
-                        <p class="project-desc">
-                            Sentiment analysis tool for product reviews using
-                            fine-tuned IndoBERT.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">Transformers</span>
-                            <span class="project-tag">Streamlit</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                        onclick="openModal(4)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">🔗</div>
-                        <div class="project-title">REST API Platform</div>
-                        <p class="project-desc">
-                            Scalable backend API with JWT authentication, rate
-                            limiting, and automated Swagger documentation.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Laravel</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">JWT</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="160"
-                        onclick="openModal(5)"
-                    >
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
-                        </div>
-                        <div class="project-img">📈</div>
-                        <div class="project-title">ETL Pipeline Automation</div>
-                        <p class="project-desc">
-                            Automated ETL pipeline to integrate data from
-                            various sources into a data warehouse.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Airflow</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                    </div>
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Projects will be rendered here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -2028,29 +1823,6 @@
                 <div class="section-eyebrow">Certificates</div>
                 <h2 class="section-title">Certificates I have<br />earned</h2>
                 <div class="repos-grid">
-                    <div class="repo-card glass" data-aos="fade-up">
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> Google Data Analytics
-                        </div>
-                        <p class="repo-desc">
-                            Professional certification from Google covering the
-                            entire data analysis process from cleaning,
-                            analysis, to visualization using R and SQL.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #4285f4"
-                                ></span
-                                >Coursera
-                            </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2024
-                            </div>
-                        </div>
-                    </div>
-
                     <div
                         class="repo-card glass"
                         data-aos="fade-up"
@@ -2070,7 +1842,7 @@
                             <div class="repo-lang">
                                 <span
                                     class="lang-dot"
-                                    style="background: #ffba08"
+                                    style="background: #1e6cbb"
                                 ></span
                                 >IBM
                             </div>
@@ -2080,110 +1852,55 @@
                         </div>
                     </div>
 
-                    <div
-                        class="repo-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="160"
-                    >
+                    <div class="repo-card glass" data-aos="fade-up">
                         <div class="repo-name">
-                            <i class="fas fa-award"></i> ML Developer Expert
+                            <i class="fas fa-award"></i> Google Data Analytics
+                            Professional
                         </div>
                         <p class="repo-desc">
-                            Advanced certification from Dicoding validating
-                            expertise in building complex and production-ready
-                            ML models.
+                            Professional certification from Google covering the
+                            entire data analysis process from cleaning,
+                            analysis, to visualization using Python and SQL.
                         </p>
                         <div class="repo-meta">
                             <div class="repo-lang">
                                 <span
                                     class="lang-dot"
-                                    style="background: #2d3e50"
-                                ></span
-                                >Dicoding
-                            </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2023
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="repo-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="80"
-                    >
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> AWS Cloud Practitioner
-                        </div>
-                        <p class="repo-desc">
-                            Validates foundational understanding of AWS cloud
-                            infrastructure, security, compliance, and core AWS
-                            services.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #ff9900"
-                                ></span
-                                >AWS
-                            </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2023
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="repo-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> Data Analysis with
-                            Python
-                        </div>
-                        <p class="repo-desc">
-                            Certification focusing on data exploration
-                            techniques, descriptive statistics, and data
-                            visualization using Python libraries.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #3776ab"
-                                ></span
-                                >Dicoding
-                            </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2023
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="repo-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="160"
-                    >
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> TensorFlow Developer
-                        </div>
-                        <p class="repo-desc">
-                            Certification in using the TensorFlow framework to
-                            build and train deep learning models.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #ff6f00"
+                                    style="background: #4081ec"
                                 ></span
                                 >Google
                             </div>
                             <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2024
+                                <i class="fas fa-calendar-alt"></i> 2026
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="repo-card glass"
+                        data-aos="fade-up"
+                        data-aos-delay="160"
+                    >
+                        <div class="repo-name">
+                            <i class="fas fa-award"></i> IBM DevOps and Software
+                            Engineering Professional
+                        </div>
+                        <p class="repo-desc">
+                            Professional certification from IBM that covers the
+                            fundamentals of DevOps and software engineering,
+                            including version control, CI/CD pipelines, and
+                            software testing.
+                        </p>
+                        <div class="repo-meta">
+                            <div class="repo-lang">
+                                <span
+                                    class="lang-dot"
+                                    style="background: #1e6cbb"
+                                ></span
+                                >IBM
+                            </div>
+                            <div class="repo-stars">
+                                <i class="fas fa-calendar-alt"></i> 2026
                             </div>
                         </div>
                     </div>
@@ -2375,96 +2092,93 @@
             // ===== Projects Data =====
             const projects = [
                 {
-                    icon: '📊',
-                    title: 'Sales Analytics Dashboard',
-                    desc: 'Real-time sales data visualization platform with multi-dimensional filtering capabilities, drill-down per product/region, and automated exportable reports. This dashboard was built to assist management in making data-driven decisions quickly and accurately.',
-                    tags: [
-                        'Laravel',
-                        'Python',
-                        'Chart.js',
-                        'MySQL',
-                        'Tailwind CSS',
-                        'Vue.js',
-                    ],
+                    image: 'assets/images/projects/project-cookies.png',
+                    title: 'Kireikies Cookies Website',
+                    cardDesc:
+                        'Website for Kireikies Cookies store, showcasing product catalog and store information.',
+                    desc: 'Website for Kireikies Cookies store, showcasing product catalog and store information. This project was built with a focus on clean UI and smooth user experience to enhance artisan product branding.',
+                    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/kireikies-cookies',
                 },
                 {
-                    icon: '🤖',
-                    title: 'ML Churn Prediction System',
-                    desc: 'Machine learning model capable of predicting potential churn customers with 89% accuracy using the XGBoost algorithm. Equipped with API endpoints, model monitoring, and a feature interpretation dashboard (SHAP values).',
-                    tags: [
-                        'Python',
-                        'XGBoost',
-                        'FastAPI',
-                        'Pandas',
-                        'Scikit-learn',
-                        'SHAP',
-                    ],
+                    image: 'assets/images/projects/project-portofolio.png',
+                    title: 'Portfolio MK FTDINUS',
+                    cardDesc:
+                        'Management and documentation system for the entire academic cycle of FT courses.',
+                    desc: 'Management and documentation system for the entire academic cycle of FT courses. Enables tracking of syllabi, course materials, and assignments in one integrated platform for lecturers and students.',
+                    tags: ['CodeIgniter', 'PHP', 'Bootstrap', 'MySQL'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/portofolio-ftdinus',
                 },
                 {
-                    icon: '📱',
-                    title: 'Inventory Management App',
-                    desc: 'Native Android application for warehouse stock management with barcode scanner features, low stock notifications, real-time reports, and cloud synchronization. Integrated with Laravel backend via REST API.',
-                    tags: [
-                        'Kotlin',
-                        'Android',
-                        'REST API',
-                        'Laravel',
-                        'MySQL',
-                        'Firebase',
-                    ],
+                    image: 'assets/images/projects/project-crumb.png',
+                    title: 'Crumb Rubber Inventory Management',
+                    cardDesc:
+                        'Inventory management system for the crumb rubber industry, including raw material recording, processed products, and reports.',
+                    desc: 'Inventory management system for the crumb rubber industry, including raw material recording, processed products, and real-time stock reports to improve factory operational efficiency.',
+                    tags: ['Kotlin', 'Android', 'REST API', 'CodeIgniter'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/supplychain_crumbrubber',
                 },
                 {
-                    icon: '🧠',
-                    title: 'NLP Sentiment Analyzer',
-                    desc: 'Sentiment analysis tool for Indonesian product reviews using a fine-tuned IndoBERT model. Achieves 91% accuracy on e-commerce datasets and is available as a Streamlit web app and REST API.',
-                    tags: [
-                        'Python',
-                        'NLP',
-                        'Transformers',
-                        'Streamlit',
-                        'FastAPI',
-                        'IndoBERT',
-                    ],
+                    image: 'assets/images/projects/project-renstra.png',
+                    title: 'RENSTRA FTDINUS',
+                    cardDesc:
+                        'Strategic Plan Information System (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP).',
+                    desc: 'Strategic Plan Information System (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP). Facilitates the university in monitoring annual target achievements.',
+                    tags: ['CodeIgniter', 'PHP', 'Bootstrap', 'MySQL'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/renstra_ftdinus',
                 },
                 {
-                    icon: '🔗',
-                    title: 'REST API Platform',
-                    desc: 'Scalable and well-documented backend API with JWT authentication, role-based access control, rate limiting, Redis caching, and automatically generated Swagger documentation. Ready for production.',
-                    tags: [
-                        'Laravel',
-                        'PHP',
-                        'JWT',
-                        'MySQL',
-                        'Redis',
-                        'Swagger',
-                    ],
+                    image: 'assets/images/projects/project-medical.png',
+                    title: 'Medical Checkup Management System',
+                    cardDesc:
+                        'A healthcare management platform integrated with IoT-based self-service health kiosks for monitoring and recording patient health data.',
+                    desc: 'A web-based healthcare management system developed to support Anjungan Kesehatan Mandiri (Independent Health Kiosks) using IoT technology. Health data collected through the kiosks is transmitted via API and stored within the platform for monitoring, analysis, and reporting. This project was a collaborative initiative between FT Universitas Dian Nuswantoro and the Semarang Health Department to enhance digital healthcare services and improve public access to health monitoring.',
+                    tags: ['Laravel', 'PHP', 'API Integration', 'IoT', 'MySQL'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/ftdinus_medical',
                 },
                 {
-                    icon: '📈',
-                    title: 'ETL Pipeline Automation',
-                    desc: 'Automated ETL pipeline integrating data from various sources (MySQL, CSV, external APIs) into a PostgreSQL data warehouse. Built with Apache Airflow for scheduling, featuring Slack alerts and retry logic.',
-                    tags: [
-                        'Python',
-                        'Airflow',
-                        'PostgreSQL',
-                        'Docker',
-                        'Pandas',
-                        'SQLAlchemy',
-                    ],
+                    image: 'assets/images/projects/project-stedi.png',
+                    title: 'STEDI',
+                    cardDesc:
+                        'STEDI is a medical device that can record lung sounds and analyze them using artificial intelligence to assist in diagnosis.',
+                    desc: 'STEDI is a medical device that can record lung sounds and analyze them using artificial intelligence. This system is expected to help doctors diagnose lung diseases more quickly and accurately using deep learning models.',
+                    tags: ['Python', 'Django', 'Keras', 'Firebase'],
                     demo: '#',
-                    github: 'https://github.com/Alfaturachman',
+                    github: 'https://github.com/Alfaturachman/stediwave',
                 },
             ];
+
+            function renderPortfolio() {
+                const grid = document.getElementById('portfolioGrid');
+                if (!grid) return;
+
+                grid.innerHTML = projects
+                    .map(
+                        (p, i) => `
+                    <div class="project-card glass" data-aos="fade-up" data-aos-delay="${i * 50}" onclick="openModal(${i})">
+                        <div class="project-arrow">
+                            <i class="fas fa-arrow-up-right"></i>
+                        </div>
+                        <div class="project-img">
+                            <img src="${p.image}" alt="${p.title}">
+                        </div>
+                        <div class="project-title">${p.title}</div>
+                        <p class="project-desc">${p.cardDesc}</p>
+                        <div class="project-tags">
+                            ${p.tags.map((t) => `<span class="project-tag">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `,
+                    )
+                    .join('');
+            }
+
+            renderPortfolio();
 
             // ===== Loader =====
             window.addEventListener('load', () => {
@@ -2531,6 +2245,59 @@
                     delay: 0.55,
                 });
 
+                // Role cycling animation
+                const roles = document.querySelectorAll('.role-text');
+                if (roles.length > 0) {
+                    let currentRoleIndex = 0;
+
+                    // Show first role
+                    gsap.set(roles[0], {
+                        opacity: 1,
+                        y: 0,
+                        visibility: 'visible',
+                    });
+
+                    function cycleRoles() {
+                        const prevRole = roles[currentRoleIndex];
+                        currentRoleIndex =
+                            (currentRoleIndex + 1) % roles.length;
+                        const nextRole = roles[currentRoleIndex];
+
+                        const tl = gsap.timeline();
+
+                        // Outgoing role
+                        tl.to(prevRole, {
+                            opacity: 0,
+                            y: -20,
+                            duration: 0.6,
+                            ease: 'power3.in',
+                            onComplete: () => {
+                                gsap.set(prevRole, {
+                                    visibility: 'hidden',
+                                    y: 20,
+                                });
+                            },
+                        });
+
+                        // Incoming role
+                        tl.set(nextRole, { visibility: 'visible' }, '-=0.3');
+                        tl.to(
+                            nextRole,
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.6,
+                                ease: 'power3.out',
+                            },
+                            '-=0.3',
+                        );
+
+                        setTimeout(cycleRoles, 3000);
+                    }
+
+                    setTimeout(cycleRoles, 3000);
+                }
+
                 // Scroll-triggered counter animation
                 gsap.registerPlugin(ScrollTrigger);
                 document.querySelectorAll('.about-stat-num').forEach((el) => {
@@ -2553,6 +2320,19 @@
                             });
                         },
                     });
+                });
+
+                // One-scroll snap from Hero to About
+                ScrollTrigger.create({
+                    trigger: '#home',
+                    start: 'top top',
+                    end: 'bottom top',
+                    snap: {
+                        snapTo: 1,
+                        duration: 0.8,
+                        ease: 'power2.inOut',
+                        delay: 0,
+                    },
                 });
             }
 
@@ -2652,7 +2432,9 @@
             // ===== Modal =====
             function openModal(index) {
                 const p = projects[index];
-                document.getElementById('modalImg').innerText = p.icon;
+                const modalImg = document.getElementById('modalImg');
+                modalImg.innerHTML = `<img src="${p.image}" alt="${p.title}">`;
+
                 document.getElementById('modalTitle').innerText = p.title;
                 document.getElementById('modalDesc').innerText = p.desc;
                 const tagsEl = document.getElementById('modalTags');
