@@ -71,37 +71,52 @@
                 color: var(--text-primary);
                 font-family: 'Outfit', sans-serif;
                 overflow-x: hidden;
-                cursor: none;
+            }
+
+            /* Hide default cursor only on desktop */
+            @media (pointer: fine) {
+                body,
+                a,
+                button,
+                .project-card,
+                .skill-card,
+                .repo-card,
+                .contact-item,
+                .social-btn,
+                .footer-cta-link,
+                .form-input {
+                    cursor: none !important;
+                }
             }
 
             /* Custom cursor */
             .cursor {
                 width: 10px;
                 height: 10px;
-                background: #fff; /* Gunakan warna putih sebagai dasar */
+                background: #fff;
                 border-radius: 50%;
                 position: fixed;
+                top: 0;
+                left: 0;
                 pointer-events: none;
                 z-index: 9999;
-                transform: translate(-50%, -50%);
-                transition: transform 0.1s;
-                mix-blend-mode: difference; /* Ini kunci agar warna berinversi otomatis */
+                mix-blend-mode: difference;
+                opacity: 0;
+                will-change: transform;
             }
             .cursor-ring {
-                width: 36px;
-                height: 36px;
-                border: 1.5px solid #fff; /* Gunakan warna putih */
+                width: 38px;
+                height: 38px;
+                border: 1.5px solid #fff;
                 border-radius: 50%;
                 position: fixed;
+                top: 0;
+                left: 0;
                 pointer-events: none;
                 z-index: 9998;
-                transform: translate(-50%, -50%);
-                transition: all 0.18s ease;
-                opacity: 1; /* Pastikan terlihat jelas */
-                mix-blend-mode: difference; /* Inversi warna otomatis */
-            }
-            body:hover .cursor {
-                opacity: 1;
+                mix-blend-mode: difference;
+                opacity: 0;
+                will-change: transform;
             }
 
             /* Scrollbar */
@@ -860,7 +875,6 @@
                 padding: 24px 28px;
                 border-radius: 18px;
                 transition: all 0.3s;
-                cursor: none;
             }
             .repo-card:hover {
                 transform: translateY(-4px);
@@ -981,7 +995,6 @@
                 color: var(--text-primary);
                 outline: none;
                 transition: all 0.2s;
-                cursor: none;
             }
             .form-input:focus {
                 border-color: var(--accent-blue);
@@ -1053,7 +1066,6 @@
                 font-size: 1rem;
                 text-decoration: none;
                 transition: all 0.3s;
-                cursor: none;
             }
             .footer-cta-link:hover {
                 background: var(--accent-blue);
@@ -1079,7 +1091,6 @@
                 color: rgba(245, 243, 238, 0.5);
                 text-decoration: none;
                 transition: color 0.2s;
-                cursor: none;
             }
             .footer-link:hover {
                 color: #f5f3ee;
@@ -1102,7 +1113,6 @@
                 color: rgba(245, 243, 238, 0.6);
                 text-decoration: none;
                 transition: all 0.2s;
-                cursor: none;
                 font-size: 0.9rem;
             }
             .social-btn:hover {
@@ -1778,30 +1788,6 @@
                             </p>
                         </div>
                     </div>
-
-                    <div
-                        class="timeline-item"
-                        data-aos="fade-up"
-                        data-aos-delay="150"
-                    >
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass">
-                            <div class="timeline-date">2023 - 2024</div>
-                            <div class="timeline-title">
-                                Publication and Documentation Division
-                            </div>
-                            <div class="timeline-org">
-                                IT Student Association
-                            </div>
-                            <p class="timeline-desc">
-                                Responsible for all publication materials and
-                                event documentation. Developed visual and
-                                narrative strategies to increase student
-                                engagement and built organization branding
-                                through professional curated content.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1854,13 +1840,13 @@
 
                     <div class="repo-card glass" data-aos="fade-up">
                         <div class="repo-name">
-                            <i class="fas fa-award"></i> Google Data Analytics
-                            Professional
+                            <i class="fas fa-award"></i> IBM DevOps and Software
+                            Engineering Professional
                         </div>
                         <p class="repo-desc">
-                            Professional certification from Google covering the
-                            entire data analysis process from cleaning,
-                            analysis, to visualization using Python and SQL.
+                            Professional certification from IBM covering the
+                            entire DevOps and software engineering process, from
+                            planning and development to release and operations.
                         </p>
                         <div class="repo-meta">
                             <div class="repo-lang">
@@ -1868,7 +1854,7 @@
                                     class="lang-dot"
                                     style="background: #4081ec"
                                 ></span
-                                >Google
+                                >IBM
                             </div>
                             <div class="repo-stars">
                                 <i class="fas fa-calendar-alt"></i> 2026
@@ -1934,7 +1920,9 @@
                             </div>
                             <div>
                                 <div class="contact-label">LinkedIn</div>
-                                <div class="contact-value">alfaturachman</div>
+                                <div class="contact-value">
+                                    alfaturachman maulana pahlevi
+                                </div>
                             </div>
                         </div>
                         <div class="contact-item glass">
@@ -2098,7 +2086,7 @@
                         'Website for Kireikies Cookies store, showcasing product catalog and store information.',
                     desc: 'Website for Kireikies Cookies store, showcasing product catalog and store information. This project was built with a focus on clean UI and smooth user experience to enhance artisan product branding.',
                     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-                    demo: '#',
+                    demo: 'https://kireikies-cookies.vercel.app/',
                     github: 'https://github.com/Alfaturachman/kireikies-cookies',
                 },
                 {
@@ -2138,7 +2126,7 @@
                         'A healthcare management platform integrated with IoT-based self-service health kiosks for monitoring and recording patient health data.',
                     desc: 'A web-based healthcare management system developed to support Anjungan Kesehatan Mandiri (Independent Health Kiosks) using IoT technology. Health data collected through the kiosks is transmitted via API and stored within the platform for monitoring, analysis, and reporting. This project was a collaborative initiative between FT Universitas Dian Nuswantoro and the Semarang Health Department to enhance digital healthcare services and improve public access to health monitoring.',
                     tags: ['Laravel', 'PHP', 'API Integration', 'IoT', 'MySQL'],
-                    demo: '#',
+                    demo: '',
                     github: 'https://github.com/Alfaturachman/ftdinus_medical',
                 },
                 {
@@ -2148,7 +2136,7 @@
                         'STEDI is a medical device that can record lung sounds and analyze them using artificial intelligence to assist in diagnosis.',
                     desc: 'STEDI is a medical device that can record lung sounds and analyze them using artificial intelligence. This system is expected to help doctors diagnose lung diseases more quickly and accurately using deep learning models.',
                     tags: ['Python', 'Django', 'Keras', 'Firebase'],
-                    demo: '#',
+                    demo: 'https://stediwave.art/',
                     github: 'https://github.com/Alfaturachman/stediwave',
                 },
             ];
@@ -2339,45 +2327,109 @@
             // ===== Cursor =====
             const cursor = document.getElementById('cursor');
             const ring = document.getElementById('cursorRing');
-            let mouseX = 0,
-                mouseY = 0,
-                ringX = 0,
-                ringY = 0;
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let ringX = mouseX;
+            let ringY = mouseY;
+            let isTouch = false;
 
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
+            gsap.set([cursor, ring], { xPercent: -50, yPercent: -50 });
+
+            function updateCursor(e) {
+                const x = e.clientX || (e.touches && e.touches[0].clientX);
+                const y = e.clientY || (e.touches && e.touches[0].clientY);
+                if (x !== undefined && y !== undefined) {
+                    mouseX = x;
+                    mouseY = y;
+                }
+            }
+
+            window.addEventListener('mousemove', (e) => {
+                isTouch = false;
+                updateCursor(e);
+                gsap.to([cursor, ring], { opacity: 1, duration: 0.3 });
             });
 
-            (function animateRing() {
-                ringX += (mouseX - ringX) * 0.14;
-                ringY += (mouseY - ringY) * 0.14;
-                ring.style.left = ringX + 'px';
-                ring.style.top = ringY + 'px';
-                requestAnimationFrame(animateRing);
-            })();
+            window.addEventListener(
+                'touchstart',
+                (e) => {
+                    isTouch = true;
+                    updateCursor(e);
+                    gsap.to([cursor, ring], { opacity: 1, duration: 0.3 });
+                },
+                { passive: true },
+            );
 
-            document
-                .querySelectorAll(
-                    'a,button,.project-card,.skill-card,.repo-card,.contact-item',
-                )
-                .forEach((el) => {
-                    el.addEventListener('mouseenter', () => {
-                        cursor.style.transform =
-                            'translate(-50%,-50%) scale(2)';
-                        ring.style.transform =
-                            'translate(-50%,-50%) scale(1.5)';
-                        ring.style.opacity = '0.25';
-                    });
-                    el.addEventListener('mouseleave', () => {
-                        cursor.style.transform =
-                            'translate(-50%,-50%) scale(1)';
-                        ring.style.transform = 'translate(-50%,-50%) scale(1)';
-                        ring.style.opacity = '0.5';
-                    });
+            window.addEventListener(
+                'touchmove',
+                (e) => {
+                    isTouch = true;
+                    updateCursor(e);
+                },
+                { passive: true },
+            );
+
+            window.addEventListener('touchend', () => {
+                if (isTouch) {
+                    setTimeout(() => {
+                        gsap.to([cursor, ring], { opacity: 0, duration: 0.5 });
+                    }, 500);
+                }
+            });
+
+            gsap.ticker.add(() => {
+                // Ring trailing effect
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+
+                gsap.set(cursor, { x: mouseX, y: mouseY });
+                gsap.set(ring, { x: ringX, y: ringY });
+            });
+
+            // Hover interactions
+            const interactElements =
+                'a, button, .project-card, .skill-card, .repo-card, .contact-item, .social-btn, .footer-cta-link';
+            document.querySelectorAll(interactElements).forEach((el) => {
+                el.addEventListener('mouseenter', () => {
+                    if (!isTouch) {
+                        gsap.to(cursor, { scale: 2.5, duration: 0.3 });
+                        gsap.to(ring, {
+                            scale: 1.5,
+                            opacity: 0.2,
+                            duration: 0.3,
+                        });
+                    }
                 });
+                el.addEventListener('mouseleave', () => {
+                    if (!isTouch) {
+                        gsap.to(cursor, { scale: 1, duration: 0.3 });
+                        gsap.to(ring, { scale: 1, opacity: 1, duration: 0.3 });
+                    }
+                });
+            });
+
+            // Click animations
+            window.addEventListener('mousedown', () => {
+                if (!isTouch) {
+                    gsap.to(cursor, { scale: 0.7, duration: 0.2 });
+                    gsap.to(ring, { scale: 1.2, duration: 0.2 });
+                }
+            });
+            window.addEventListener('mouseup', () => {
+                if (!isTouch) {
+                    gsap.to(cursor, { scale: 1, duration: 0.2 });
+                    gsap.to(ring, { scale: 1, duration: 0.2 });
+                }
+            });
+
+            // Hide when mouse leaves window
+            document.addEventListener('mouseleave', () => {
+                gsap.to([cursor, ring], { opacity: 0, duration: 0.3 });
+            });
+            document.addEventListener('mouseenter', () => {
+                if (!isTouch)
+                    gsap.to([cursor, ring], { opacity: 1, duration: 0.3 });
+            });
 
             // ===== Navbar =====
             const navbar = document.getElementById('navbar');
