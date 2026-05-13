@@ -64,6 +64,7 @@
 
             html {
                 scroll-behavior: smooth;
+                overflow-x: hidden;
             }
 
             body {
@@ -420,6 +421,7 @@
             /* Section commons */
             section {
                 padding: 100px 24px;
+                overflow-x: hidden;
             }
             .section-max {
                 max-width: 1180px;
@@ -2187,6 +2189,11 @@
                                         'loader',
                                     ).style.display = 'none';
                                     initAnimations();
+                                    // Force refresh after layout is ready
+                                    setTimeout(() => {
+                                        AOS.refresh();
+                                        ScrollTrigger.refresh();
+                                    }, 100);
                                 },
                             });
                         }, 300);
