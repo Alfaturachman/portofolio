@@ -254,58 +254,61 @@
                 color: var(--accent-blue);
             }
 
-            /* Hero Redesign */
+            /* New Premium Hero Layout */
             #home {
-                height: 100vh;
+                min-height: 100vh;
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                flex-direction: column;
+                justify-content: space-between;
                 position: relative;
                 overflow: hidden;
-                padding: 0 24px;
+                padding: 120px 48px 48px 48px;
                 background-color: var(--bg-primary);
+                border-bottom: 1.5px solid var(--accent);
             }
-            .hero-grid-overlay {
+            @media (max-width: 768px) {
+                #home {
+                    padding: 100px 24px 32px 24px;
+                }
+            }
+            .hero-structural-grid {
                 position: absolute;
                 inset: 0;
-                background-image:
-                    linear-gradient(
-                        var(--bg-secondary) 1.5px,
-                        transparent 1.5px
-                    ),
-                    linear-gradient(
-                        90deg,
-                        var(--bg-secondary) 1.5px,
-                        transparent 1.5px
-                    );
-                background-size: 60px 60px;
-                opacity: 0.4;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
                 pointer-events: none;
+                z-index: 1;
             }
-            .hero-inner {
+            .hero-grid-line {
+                border-right: 1px solid rgba(26, 22, 16, 0.05);
+                height: 100%;
+            }
+            .hero-grid-line:last-child {
+                border-right: none;
+            }
+            .hero-top-row {
                 position: relative;
                 z-index: 10;
-                max-width: 1200px;
                 width: 100%;
-                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1.5px solid var(--accent);
+                padding-bottom: 24px;
             }
-            .hero-tag {
-                display: inline-flex;
+            @media (max-width: 768px) {
+                .hero-top-row {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+                }
+            }
+            .hero-brand-pill {
+                display: flex;
                 align-items: center;
                 gap: 10px;
-                padding: 8px 18px;
-                border-radius: 99px;
-                font-size: 0.72rem;
-                font-weight: 700;
-                color: var(--accent-blue);
-                background: white;
-                border: 1px solid var(--accent-blue-soft);
-                box-shadow: 0 4px 12px var(--glass-shadow);
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                margin-bottom: 40px;
             }
-            .hero-tag span.dot {
+            .hero-brand-pill span.dot {
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
@@ -313,109 +316,191 @@
                 display: inline-block;
                 animation: pulse 2s infinite;
             }
-            @keyframes pulse {
-                0%,
-                100% {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                50% {
-                    opacity: 0.4;
-                    transform: scale(1.4);
-                }
+            .hero-brand-text {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--text-secondary);
             }
-            .hero-headline {
-                font-family: 'Outfit', sans-serif;
-                font-weight: 900;
-                font-size: clamp(2.5rem, 8vw, 7rem);
-                line-height: 0.95;
-                letter-spacing: -0.05em;
-                color: var(--text-primary);
-                margin-bottom: 24px;
-            }
-            .hero-headline .block {
-                display: block;
-            }
-            .hero-headline .accent-word {
+            .hero-status-pill {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
                 color: var(--accent-blue);
-                display: inline-block;
+                background: var(--accent-blue-soft);
+                padding: 6px 16px;
+                border-radius: 99px;
+                border: 1px solid rgba(59, 91, 219, 0.15);
             }
-            .hero-role-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: clamp(1.5rem, 4vw, 2.5rem);
-                margin-bottom: 32px;
+
+            .hero-middle-grid {
                 position: relative;
-                overflow: hidden;
+                z-index: 10;
+                flex-grow: 1;
+                display: grid;
+                grid-template-columns: 7fr 5fr;
+                gap: 48px;
+                align-items: center;
+                width: 100%;
+                max-width: 1200px;
+                margin: 48px auto;
             }
-            .role-text {
-                position: absolute;
-                font-size: clamp(1rem, 3vw, 1.8rem);
-                font-weight: 500;
-                color: var(--text-secondary);
-                letter-spacing: 0.05em;
-                opacity: 0;
-                transform: translateY(30px);
-                visibility: hidden;
-                white-space: nowrap;
+            @media (max-width: 1024px) {
+                .hero-middle-grid {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                    margin: 32px 0;
+                    align-items: flex-start;
+                }
             }
-            .hero-sub {
-                font-size: clamp(1rem, 2vw, 1.25rem);
-                color: var(--text-secondary);
-                font-weight: 300;
-                line-height: 1.6;
-                max-width: 650px;
-                margin: 0 auto 48px auto;
-            }
-            .hero-ctas {
+
+            .hero-headline-container {
                 display: flex;
-                gap: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .hero-eyebrow {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.3em;
+                color: var(--accent-soft);
+                text-transform: uppercase;
+                margin-bottom: 16px;
+            }
+            .hero-title-main {
+                font-family: 'Syne', sans-serif;
+                font-weight: 800;
+                font-size: clamp(2.8rem, 7.5vw, 6rem);
+                line-height: 0.9;
+                letter-spacing: -0.04em;
+                color: var(--text-primary);
+            }
+            .hero-title-main span.accented {
+                color: var(--accent-blue);
+            }
+
+            .hero-info-sidebar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 48px;
+                border-left: 1.5px solid var(--accent);
+            }
+            @media (max-width: 1024px) {
+                .hero-info-sidebar {
+                    padding-left: 0;
+                    border-left: none;
+                    border-top: 1.5px solid var(--accent);
+                    padding-top: 32px;
+                    width: 100%;
+                }
+            }
+
+            .hero-desc-text {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--text-secondary);
+                margin-bottom: 36px;
+                max-width: 420px;
+                font-weight: 400;
+            }
+
+            .hero-cta-group {
+                display: flex;
+                gap: 16px;
+                width: 100%;
+                max-width: 420px;
+            }
+            .btn-hero-primary {
+                flex: 1;
+                display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                flex-wrap: wrap;
-            }
-            .btn-primary {
-                padding: 18px 40px;
+                gap: 10px;
+                padding: 16px 24px;
                 background: var(--accent);
                 color: #fff;
-                border-radius: 12px;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.8rem;
                 font-weight: 700;
-                font-size: 0.95rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
                 text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                border-radius: 8px;
+                transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
                 cursor: none;
-                border: none;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
-            .btn-primary:hover {
+            .btn-hero-primary:hover {
                 background: var(--accent-blue);
-                transform: translateY(-5px);
-                box-shadow: 0 20px 40px rgba(59, 91, 219, 0.25);
+                transform: translateY(-3px);
+                box-shadow: 0 12px 24px rgba(59, 91, 219, 0.2);
             }
-            .btn-outline {
-                padding: 18px 40px;
-                background: white;
-                color: var(--text-primary);
-                border-radius: 12px;
-                font-weight: 700;
-                font-size: 0.95rem;
-                text-decoration: none;
+            .btn-hero-outline {
+                flex: 1;
                 display: inline-flex;
+                justify-content: center;
                 align-items: center;
-                gap: 12px;
-                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                padding: 16px 24px;
+                background: transparent;
+                color: var(--text-primary);
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                text-decoration: none;
+                border: 1.5px solid var(--accent);
+                border-radius: 8px;
+                transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
                 cursor: none;
-                border: 1px solid rgba(26, 22, 16, 0.1);
             }
-            .btn-outline:hover {
-                border-color: var(--accent-blue);
-                color: var(--accent-blue);
-                transform: translateY(-5px);
-                background: var(--accent-blue-soft);
+            .btn-hero-outline:hover {
+                background: var(--bg-secondary);
+                transform: translateY(-3px);
+            }
+
+            .hero-bottom-row {
+                position: relative;
+                z-index: 10;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+                border-top: 1.5px solid var(--accent);
+                padding-top: 24px;
+            }
+            @media (max-width: 768px) {
+                .hero-bottom-row {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 16px;
+                }
+            }
+            .hero-meta-item {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-meta-label {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--text-muted);
+                margin-bottom: 6px;
+            }
+            .hero-meta-val {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--text-primary);
             }
 
             /* Section commons */
@@ -1270,71 +1355,75 @@
 
         <!-- Hero -->
         <section id="home">
-            <div class="hero-grid-overlay"></div>
-            <div
-                class="blob"
-                style="
-                    width: 700px;
-                    height: 700px;
-                    background: radial-gradient(
-                        circle,
-                        #b8c4f7 0%,
-                        transparent 70%
-                    );
-                    top: -200px;
-                    right: -100px;
-                    opacity: 0.4;
-                "
-            ></div>
-            <div
-                class="blob"
-                style="
-                    width: 600px;
-                    height: 600px;
-                    background: radial-gradient(
-                        circle,
-                        #f5e6c8 0%,
-                        transparent 70%
-                    );
-                    bottom: -150px;
-                    left: -100px;
-                    opacity: 0.5;
-                "
-            ></div>
+            <div class="hero-structural-grid">
+                <div class="hero-grid-line"></div>
+                <div class="hero-grid-line"></div>
+                <div class="hero-grid-line"></div>
+                <div class="hero-grid-line"></div>
+            </div>
 
-            <div class="hero-inner">
-                <div class="hero-tag">
-                    <span class="dot"></span> Available for work
+            <!-- Top Row: Status / Context -->
+            <div class="hero-top-row hero-tag">
+                <div class="hero-brand-pill">
+                    <span class="dot"></span>
+                    <span class="hero-brand-text">PORTFOLIO '26</span>
+                </div>
+                <div class="hero-status-pill">● Available for new projects</div>
+            </div>
+
+            <!-- Middle Row: Massive Headline & Asymmetric Layout -->
+            <div class="hero-middle-grid">
+                <div class="hero-headline-container">
+                    <div class="hero-eyebrow">
+                        ALFATURACHMAN MAULANA PAHLEVI
+                    </div>
+                    <h1 class="hero-title-main" id="heroHeadline">
+                        BUILDING<br />
+                        INTELLIGENT<br />
+                        <span class="accented">SYSTEMS.</span>
+                    </h1>
                 </div>
 
-                <h1 class="hero-headline" id="heroHeadline">
-                    <span class="block">ALFATURACHMAN</span>
-                    <span class="accent-word block">MAULANA PAHLEVI</span>
-                </h1>
-
-                <div class="hero-role-wrapper">
-                    <span class="role-text">SOFTWARE DEVELOPER</span>
-                    <span class="role-text">ARTIFICIAL INTELLIGENCE</span>
-                    <span class="role-text">MACHINE LEARNING</span>
+                <div class="hero-info-sidebar">
+                    <div class="hero-cta-group hero-ctas">
+                        <a href="#portfolio" class="btn-hero-primary">
+                            <span>Explore Works</span>
+                            <i
+                                class="fas fa-arrow-right"
+                                style="font-size: 0.8em"
+                            ></i>
+                        </a>
+                        <a href="#about" class="btn-hero-outline">
+                            <span>About Me</span>
+                        </a>
+                    </div>
                 </div>
+            </div>
 
-                <p class="hero-sub">
-                    Crafting intelligent systems and high-performance digital
-                    solutions that bridge the gap between complex data and
-                    human-centric design.
-                </p>
-
-                <div class="hero-ctas">
-                    <a href="#portfolio" class="btn-primary">
-                        <span>View Portfolio</span>
-                        <i
-                            class="fas fa-arrow-right"
-                            style="font-size: 0.8em"
-                        ></i>
-                    </a>
-                    <a href="#about" class="btn-outline">
-                        <span>About me</span>
-                    </a>
+            <!-- Bottom Row: Meta Information -->
+            <div class="hero-bottom-row">
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Core Expertise</div>
+                    <div class="hero-meta-val">AI & Machine Learning</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Infrastructure</div>
+                    <div class="hero-meta-val">
+                        DevOps and Software Engineering
+                    </div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Location</div>
+                    <div class="hero-meta-val">Semarang, Indonesia</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Contact</div>
+                    <div
+                        class="hero-meta-val"
+                        style="font-size: 0.72rem; word-break: break-all"
+                    >
+                        alfaturachmanpahlevi@gmail.com
+                    </div>
                 </div>
             </div>
         </section>
@@ -1387,7 +1476,7 @@
                             </h3>
                             <p class="about-bio">
                                 I am a
-                                <strong>Software Developer</strong>
+                                <strong>Software Engineer</strong>
                                 focused on developing AI and machine
                                 learning-based solutions. With a strong
                                 background in backend, data analysis, and
@@ -1402,7 +1491,7 @@
                                 >
                             </p>
                             <div class="tag-row" style="margin-top: 24px">
-                                <span class="tag">Software Developer</span>
+                                <span class="tag">Software Engineer</span>
                                 <span class="tag">Artificial Intelligence</span>
                                 <span class="tag">Machine Learning</span>
                                 <span class="tag">DevOps</span>
@@ -1811,7 +1900,6 @@
                 <div class="section-eyebrow">Certificates</div>
                 <h2 class="section-title">Certificates I have<br />earned</h2>
                 <div class="repos-grid">
-                    
                     <div
                         class="repo-card glass"
                         data-aos="fade-up"
@@ -2431,59 +2519,13 @@
                     ease: 'power3.out',
                     delay: 0.55,
                 });
-
-                // Role cycling animation
-                const roles = document.querySelectorAll('.role-text');
-                if (roles.length > 0) {
-                    let currentRoleIndex = 0;
-
-                    // Show first role
-                    gsap.set(roles[0], {
-                        opacity: 1,
-                        y: 0,
-                        visibility: 'visible',
-                    });
-
-                    function cycleRoles() {
-                        const prevRole = roles[currentRoleIndex];
-                        currentRoleIndex =
-                            (currentRoleIndex + 1) % roles.length;
-                        const nextRole = roles[currentRoleIndex];
-
-                        const tl = gsap.timeline();
-
-                        // Outgoing role
-                        tl.to(prevRole, {
-                            opacity: 0,
-                            y: -20,
-                            duration: 0.6,
-                            ease: 'power3.in',
-                            onComplete: () => {
-                                gsap.set(prevRole, {
-                                    visibility: 'hidden',
-                                    y: 20,
-                                });
-                            },
-                        });
-
-                        // Incoming role
-                        tl.set(nextRole, { visibility: 'visible' }, '-=0.3');
-                        tl.to(
-                            nextRole,
-                            {
-                                opacity: 1,
-                                y: 0,
-                                duration: 0.6,
-                                ease: 'power3.out',
-                            },
-                            '-=0.3',
-                        );
-
-                        setTimeout(cycleRoles, 3000);
-                    }
-
-                    setTimeout(cycleRoles, 3000);
-                }
+                gsap.from('.hero-bottom-row', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    delay: 0.75,
+                });
 
                 // Scroll-triggered counter animation
                 gsap.registerPlugin(ScrollTrigger);
