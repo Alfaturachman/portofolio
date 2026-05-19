@@ -376,13 +376,20 @@
             .hero-title-main {
                 font-family: 'Syne', sans-serif;
                 font-weight: 800;
-                font-size: clamp(2.8rem, 7.5vw, 6rem);
+                font-size: clamp(2rem, 7.5vw, 6rem);
                 line-height: 0.9;
                 letter-spacing: -0.04em;
                 color: var(--text-primary);
+                word-wrap: break-word;
             }
             .hero-title-main span.accented {
                 color: var(--accent-blue);
+            }
+            @media (max-width: 480px) {
+                .hero-title-main {
+                    font-size: clamp(1.8rem, 8.5vw, 2.5rem);
+                    letter-spacing: -0.05em;
+                }
             }
 
             .hero-info-sidebar {
