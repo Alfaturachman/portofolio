@@ -168,7 +168,7 @@
                 transition: all 0.4s ease;
             }
             #navbar.scrolled {
-                padding: 10px 0;
+                padding: 10px 24px;
             }
             .nav-inner {
                 max-width: 1180px;
@@ -374,11 +374,10 @@
                 margin-bottom: 16px;
             }
             .hero-title-main {
-                font-family: 'Syne', sans-serif;
-                font-weight: 800;
-                font-size: clamp(2rem, 7.5vw, 6rem);
-                line-height: 0.9;
-                letter-spacing: -0.04em;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-weight: 1000;
+                font-size: clamp(2.5rem, 9.5vw, 7.5rem);
+                line-height: 0.95;
                 color: var(--text-primary);
                 word-wrap: break-word;
             }
@@ -387,8 +386,8 @@
             }
             @media (max-width: 480px) {
                 .hero-title-main {
-                    font-size: clamp(1.8rem, 8.5vw, 2.5rem);
-                    letter-spacing: -0.05em;
+                    font-weight: 1000;
+                    font-size: clamp(3.2rem, 10vw, 3.2rem);
                 }
             }
 
@@ -550,42 +549,68 @@
             #about {
                 background: var(--bg-secondary);
             }
-            .about-grid {
-                display: grid;
-                grid-template-columns: 1.2fr 1fr; /* Membuat kolom bio sedikit lebih lebar */
-                gap: 24px;
-                margin-top: 56px;
-            }
-            .about-card {
-                padding: 40px;
-                border-radius: 24px;
-            }
-            .about-card.tall {
-                grid-row: span 2;
+            .about-layout {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                gap: 48px;
+                margin-top: 56px;
             }
-            .about-stat {
+            @media (min-width: 1024px) {
+                .about-layout {
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 64px;
+                }
+            }
+            .about-image-wrapper {
+                flex: 0 0 42%;
+                position: relative;
+                border-radius: 24px;
+                overflow: hidden;
+            }
+            .about-image-wrapper img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4/5;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 24px;
+                transition: transform 0.6s ease;
+            }
+            .about-image-wrapper:hover img {
+                transform: scale(1.05);
+            }
+            .about-content-wrapper {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .about-stats-row {
+                display: flex;
+                gap: 48px;
                 margin-top: 32px;
+                padding-top: 32px;
+                border-top: 1px solid rgba(26, 22, 16, 0.1);
+            }
+            .about-stat-item {
+                display: flex;
+                flex-direction: column;
             }
             .about-stat-num {
                 font-family: 'Outfit', sans-serif;
                 font-size: 3.5rem;
                 font-weight: 800;
-                letter-spacing: -0.04em;
-                color: var(--accent-blue);
+                color: var(--text-primary);
                 line-height: 1;
+                letter-spacing: -0.04em;
             }
-            .about-stat-label {
+            .about-stat-text {
                 font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
                 color: var(--text-secondary);
-                margin-top: 4px;
-            }
-            .stat-row {
-                display: flex;
-                gap: 40px;
-                margin-top: 12px;
+                margin-top: 8px;
             }
             .about-bio {
                 font-size: 1.05rem;
@@ -1021,86 +1046,100 @@
                 gap: 4px;
             }
 
-            /* Contact */
-            .contact-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
-                margin-top: 56px;
+            /* Contact Premium */
+            #contact {
+                padding: 120px 24px;
+                background: var(--bg-primary);
+                border-top: 1px solid rgba(26, 22, 16, 0.05);
             }
-            .contact-info {
+            .contact-premium-wrapper {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 64px;
+                max-width: 1180px;
+                margin: 0 auto;
             }
-            .contact-item {
+            .contact-huge-text {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-weight: 800;
+                font-size: clamp(3rem, 9vw, 7rem);
+                line-height: 0.95;
+                letter-spacing: -0.05em;
+                color: var(--text-primary);
+                word-wrap: break-word;
+            }
+            .contact-huge-text .accented {
+                color: var(--accent-blue);
+            }
+            .contact-premium-info {
                 display: flex;
-                gap: 16px;
-                align-items: flex-start;
-                padding: 20px 24px;
-                border-radius: 16px;
+                flex-direction: column;
+                gap: 48px;
+                max-width: 800px;
             }
-            .contact-icon {
-                width: 40px;
-                height: 40px;
-                background: var(--accent-blue-soft);
-                border-radius: 12px;
+            .contact-premium-desc {
+                font-size: clamp(1.1rem, 2vw, 1.4rem);
+                color: var(--text-secondary);
+                line-height: 1.5;
+                font-family: 'DM Sans', sans-serif;
+            }
+            .contact-premium-links {
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid rgba(26, 22, 16, 0.1);
+            }
+            .premium-link-item {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                color: var(--accent-blue);
+                justify-content: space-between;
+                padding: 32px 0;
+                border-bottom: 1px solid rgba(26, 22, 16, 0.1);
+                text-decoration: none;
+                color: var(--text-primary);
+                transition: all 0.4s ease;
+            }
+            .premium-link-label {
+                font-size: 1.2rem;
+                font-weight: 700;
+                width: 160px;
                 flex-shrink: 0;
             }
-            .contact-label {
-                font-size: 0.75rem;
-                font-weight: 600;
-                color: var(--text-muted);
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                margin-bottom: 2px;
-            }
-            .contact-value {
-                font-size: 0.95rem;
-                color: var(--text-primary);
-                font-weight: 500;
-            }
-            .contact-form {
-                display: flex;
-                flex-direction: column;
-                gap: 14px;
-            }
-            .form-group {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-            }
-            .form-label {
-                font-size: 0.78rem;
-                font-weight: 600;
-                color: var(--text-secondary);
-            }
-            .form-input {
-                padding: 12px 16px;
-                border-radius: 12px;
-                border: 1.5px solid rgba(26, 22, 16, 0.1);
-                background: rgba(255, 255, 255, 0.6);
+            .premium-link-val {
                 font-family: 'DM Sans', sans-serif;
-                font-size: 0.9rem;
+                font-size: 1.1rem;
+                color: var(--text-secondary);
+                flex-grow: 1;
+                transition: color 0.4s ease;
+            }
+            .premium-link-icon {
+                font-size: 1.5rem;
+                opacity: 0;
+                transform: translateX(-20px) rotate(-45deg);
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                color: var(--accent-blue);
+            }
+            .premium-link-item:hover .premium-link-val {
                 color: var(--text-primary);
-                outline: none;
-                transition: all 0.2s;
             }
-            .form-input:focus {
-                border-color: var(--accent-blue);
-                box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.1);
-                background: #fff;
+            .premium-link-item:hover .premium-link-icon {
+                opacity: 1;
+                transform: translateX(0) rotate(-45deg);
             }
-            textarea.form-input {
-                resize: vertical;
-                min-height: 120px;
-            }
-            .form-input::placeholder {
-                color: var(--text-muted);
+            @media (max-width: 768px) {
+                .premium-link-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    padding: 24px 0;
+                    position: relative;
+                }
+                .premium-link-icon {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(-45deg);
+                    opacity: 1;
+                }
             }
 
             /* Footer */
@@ -1131,6 +1170,7 @@
                 text-align: center;
                 position: relative;
                 z-index: 1;
+                width: 100%;
             }
             .footer-intro {
                 font-size: 0.8rem;
@@ -1214,9 +1254,56 @@
                 color: #f5f3ee;
                 transform: translateY(-2px);
             }
-            .footer-copy {
-                font-size: 0.78rem;
-                color: rgba(245, 243, 238, 0.25);
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                max-width: 1180px;
+                margin: 64px auto 0;
+                padding-top: 24px;
+                border-top: 1px solid rgba(245, 243, 238, 0.1);
+                font-size: 0.8rem;
+                color: rgba(245, 243, 238, 0.5);
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+            .footer-bottom-left,
+            .footer-bottom-right {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+            .local-time {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 500;
+            }
+            .time-dot {
+                width: 6px;
+                height: 6px;
+                background: #22c55e;
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+            .back-to-top {
+                color: rgba(245, 243, 238, 0.8);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: color 0.3s;
+                font-weight: 600;
+            }
+            .back-to-top:hover {
+                color: #fff;
+            }
+            @media (max-width: 768px) {
+                .footer-bottom {
+                    flex-direction: column-reverse;
+                    gap: 16px;
+                    text-align: center;
+                }
             }
 
             /* Loader */
@@ -1373,7 +1460,7 @@
             <div class="hero-top-row hero-tag">
                 <div class="hero-brand-pill">
                     <span class="dot"></span>
-                    <span class="hero-brand-text">PORTFOLIO '26</span>
+                    <span class="hero-brand-text">PORTFOLIO</span>
                 </div>
                 <div class="hero-status-pill">● Available for new projects</div>
             </div>
@@ -1440,148 +1527,143 @@
             <div class="section-max">
                 <div class="section-eyebrow">About Me</div>
                 <h2 class="section-title">Who I am,<br />and what I do</h2>
-                <div class="about-grid">
-                    <!-- 1. TALL CARD (KIRI) -->
-                    <div
-                        class="about-card glass tall"
-                        data-aos="fade-right"
-                        style="
-                            grid-column: 1;
-                            grid-row: span 2;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                        "
-                    >
-                        <div>
-                            <h3
+                <div class="about-layout">
+                    <!-- Image -->
+                    <div class="about-image-wrapper" data-aos="fade-right">
+                        <img
+                            src="assets/images/IMG_6155.JPG"
+                            alt="Alfaturachman Maulana Pahlevi"
+                        />
+                    </div>
+
+                    <!-- Content -->
+                    <div class="about-content-wrapper" data-aos="fade-left">
+                        <h3
+                            style="
+                                font-family: 'Outfit', sans-serif;
+                                font-weight: 800;
+                                font-size: clamp(1.8rem, 3vw, 2.5rem);
+                                line-height: 1.1;
+                                letter-spacing: -0.04em;
+                                margin-bottom: 24px;
+                                color: var(--text-primary);
+                            "
+                        >
+                            Driven by
+                            <span style="color: var(--accent-blue)"> Data</span
+                            >,<br />
+                            Built with
+                            <span
+                                class="stroke-text"
                                 style="
-                                    font-family: 'Outfit', sans-serif;
-                                    font-weight: 800;
-                                    font-size: clamp(1.8rem, 3vw, 2.5rem);
-                                    line-height: 1.1;
-                                    letter-spacing: -0.04em;
-                                    margin-bottom: 28px;
-                                    color: var(--text-primary);
+                                    -webkit-text-stroke: 1px var(--text-primary);
+                                    color: transparent;
+                                    font-size: 0.95em;
                                 "
                             >
-                                Driven by
-                                <span style="color: var(--accent-blue)"
-                                    >Data</span
-                                >,<br />
-                                Built with
-                                <span
-                                    class="stroke-text"
+                                Code.</span
+                            >
+                        </h3>
+
+                        <p class="about-bio">
+                            I am a <strong>Software Engineer</strong> focused on
+                            DevOps and Artificial Intelligence-based solutions.
+                            With a strong background in backend, data analysis,
+                            and engineering, I build systems that create a real
+                            impact.
+                        </p>
+                        <p
+                            class="about-bio"
+                            style="margin-top: 16px; margin-bottom: 24px"
+                        >
+                            Currently actively exploring solid solutions in
+                            <strong
+                                >DevOps, Artificial Intelligence, and</strong
+                            >
+                            <strong>Machine Learning.</strong>
+                        </p>
+
+                        <div class="tag-row" style="margin-bottom: 32px">
+                            <span class="tag">Software Engineer</span>
+                            <span class="tag">Artificial Intelligence</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">DevOps</span>
+                        </div>
+
+                        <!-- Education inline -->
+                        <div
+                            style="
+                                background: rgba(59, 91, 219, 0.04);
+                                border: 1px solid rgba(59, 91, 219, 0.1);
+                                border-radius: 16px;
+                                padding: 20px;
+                                display: flex;
+                                align-items: flex-start;
+                                gap: 16px;
+                            "
+                        >
+                            <div
+                                style="
+                                    width: 44px;
+                                    height: 44px;
+                                    background: #fff;
+                                    border-radius: 12px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: var(--accent-blue);
+                                    font-size: 1.2rem;
+                                    flex-shrink: 0;
+                                    box-shadow: 0 4px 12px
+                                        rgba(160, 148, 130, 0.1);
+                                "
+                            >
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <div
                                     style="
-                                        -webkit-text-stroke: 1px
-                                            var(--text-primary);
-                                        color: transparent;
-                                        font-size: 0.95em;
+                                        font-family: 'Outfit', sans-serif;
+                                        font-weight: 700;
+                                        font-size: 1rem;
+                                        color: var(--text-primary);
+                                        margin-bottom: 6px;
                                     "
-                                    >Code.</span
                                 >
-                            </h3>
-                            <p class="about-bio">
-                                I am a
-                                <strong>Software Engineer</strong>
-                                focused on developing AI and machine
-                                learning-based solutions. With a strong
-                                background in backend, data analysis, and
-                                engineering, I build systems that create a real
-                                impact.
-                            </p>
-                            <p class="about-bio" style="margin-top: 16px">
-                                Currently actively exploring
-                                <strong
-                                    >DevOps, Artificial Intelligence, and
-                                    Machine Learning.</strong
+                                    Associate Degree | Bachelor's Degree in IT
+                                </div>
+                                <p
+                                    class="about-bio"
+                                    style="
+                                        font-size: 0.9rem;
+                                        margin: 0;
+                                        line-height: 1.5;
+                                    "
                                 >
-                            </p>
-                            <div class="tag-row" style="margin-top: 24px">
-                                <span class="tag">Software Engineer</span>
-                                <span class="tag">Artificial Intelligence</span>
-                                <span class="tag">Machine Learning</span>
-                                <span class="tag">DevOps</span>
+                                    I hold an Associate Degree in IT and am
+                                    currently completing my
+                                    <strong>Bachelor's Degree</strong>, focusing
+                                    my studies on practical machine learning and
+                                    infrastructure.
+                                </p>
                             </div>
                         </div>
-                        <div class="stat-row">
-                            <div class="about-stat">
+
+                        <!-- Stats -->
+                        <div class="about-stats-row">
+                            <div class="about-stat-item">
                                 <div class="about-stat-num">12+</div>
-                                <div class="about-stat-label">
+                                <div class="about-stat-text">
                                     Completed Projects
                                 </div>
                             </div>
-                            <div class="about-stat">
+                            <div class="about-stat-item">
                                 <div class="about-stat-num">3+</div>
-                                <div class="about-stat-label">
+                                <div class="about-stat-text">
                                     Years Experience
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- 2. PHOTO CARD (KANAN ATAS) -->
-                    <div
-                        class="about-card glass"
-                        style="
-                            padding: 0;
-                            overflow: hidden;
-                            position: relative;
-                            min-height: 250px;
-                        "
-                        data-aos="fade-left"
-                    >
-                        <img
-                            src="assets/images/profile-beige.PNG"
-                            alt="Alfaturachman Maulana Pahlevi"
-                            style="
-                                position: absolute;
-                                inset: 0;
-                                width: 100%;
-                                height: 100%;
-                                object-fit: cover;
-                                object-position: top;
-                                transition: transform 0.6s ease;
-                            "
-                            onmouseover="this.style.transform = 'scale(1.08)'"
-                            onmouseout="this.style.transform = 'scale(1)'"
-                        />
-                    </div>
-
-                    <!-- 3. EDUCATION CARD (KANAN BAWAH) -->
-                    <div
-                        class="about-card glass"
-                        data-aos="fade-left"
-                        data-aos-delay="100"
-                    >
-                        <div
-                            style="
-                                width: 48px;
-                                height: 48px;
-                                background: var(--accent-blue-soft);
-                                border-radius: 14px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                color: var(--accent-blue);
-                                font-size: 1.4rem;
-                                margin-bottom: 16px;
-                            "
-                        >
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-date">Education</div>
-                        <div class="timeline-title" style="font-size: 1.05rem">
-                            Associate Degree | Bachelor's Degree in IT
-                        </div>
-                        <p
-                            class="about-bio"
-                            style="margin-top: 8px; font-size: 0.88rem"
-                        >
-                            Associate Degree graduate in IT currently pursuing a
-                            <strong>Bachelor's Degree in IT</strong> to deepen
-                            expertise in AI, ML, and DevOps.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1619,8 +1701,7 @@
                                 Python
                             </div>
                             <div class="skill-desc">
-                                Data analysis, ML/AI, and backend automation.
-                                Tools: Pandas, Scikit-learn.
+                                Data analysis, AI/ML, and backend automation.
                             </div>
                         </div>
                     </div>
@@ -1653,9 +1734,29 @@
                             </div>
                             <div class="skill-desc">
                                 Full-stack web development, REST API, and
-                                database management with Eloquent.
+                                database management.
                             </div>
                         </div>
+                    </div>
+
+                    <!-- HTML/CSS -->
+                    <div
+                        class="skill-card glass"
+                        data-aos="fade-up"
+                        data-aos-delay="140"
+                    >
+                        <div
+                            class="skill-icon"
+                            style="
+                                background: rgba(255, 90, 31, 0.1);
+                                color: #ff5a1f;
+                                font-size: 1.5rem;
+                            "
+                        >
+                            <i class="fab fa-html5"></i>
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="skill-name">HTML/CSS</div>
                     </div>
 
                     <!-- JavaScript -->
@@ -1677,45 +1778,7 @@
                         <div class="skill-name">JavaScript</div>
                     </div>
 
-                    <!-- MySQL -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(0, 117, 143, 0.1);
-                                color: #00758f;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">MySQL</div>
-                    </div>
-
-                    <!-- Machine Learning -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="140"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(61, 220, 151, 0.1);
-                                color: #3ddc97;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <div class="skill-name">Machine Learning</div>
-                    </div>
-
-                    <!-- Data Analysis -->
+                    <!-- React -->
                     <div
                         class="skill-card glass"
                         data-aos="fade-up"
@@ -1729,9 +1792,38 @@
                                 font-size: 1.5rem;
                             "
                         >
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fab fa-react"></i>
                         </div>
-                        <div class="skill-name">Data Analysis</div>
+                        <div class="skill-name">React</div>
+                    </div>
+
+                    <!-- Next.js -->
+                    <div
+                        class="skill-card glass"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div
+                            class="skill-icon"
+                            style="
+                                background: rgba(26, 22, 16, 0.07);
+                                color: #1a1610;
+                                font-size: 1.5rem;
+                            "
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                height="1em"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24ZM12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5C6.20101 1.5 1.5 6.20101 1.5 12C1.5 17.799 6.20101 22.5 12 22.5ZM17.7126 18.3582L9.42878 7.39167H6.99443V16.6083H8.76104V9.69741L16.0379 19.3331C16.6346 19.0559 17.1953 18.7275 17.7126 18.3582ZM16.2995 7.39167H14.5329V15.0212H16.2995V7.39167Z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="skill-name">Next.js</div>
                     </div>
 
                     <!-- Kotlin/Mobile -->
@@ -1753,25 +1845,6 @@
                         <div class="skill-name">Kotlin</div>
                     </div>
 
-                    <!-- HTML/CSS -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(255, 90, 31, 0.1);
-                                color: #ff5a1f;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-html5"></i>
-                        </div>
-                        <div class="skill-name">HTML / CSS</div>
-                    </div>
-
                     <!-- PHP -->
                     <div
                         class="skill-card glass"
@@ -1789,6 +1862,25 @@
                             <i class="fab fa-php"></i>
                         </div>
                         <div class="skill-name">PHP</div>
+                    </div>
+
+                    <!-- MySQL -->
+                    <div
+                        class="skill-card glass"
+                        data-aos="fade-up"
+                        data-aos-delay="120"
+                    >
+                        <div
+                            class="skill-icon"
+                            style="
+                                background: rgba(0, 117, 143, 0.1);
+                                color: #00758f;
+                                font-size: 1.5rem;
+                            "
+                        >
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="skill-name">MySQL</div>
                     </div>
 
                     <!-- Git -->
@@ -2123,100 +2215,56 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" style="background: var(--bg-primary)">
-            <div class="section-max">
-                <div class="section-eyebrow">Contact</div>
-                <h2 class="section-title">
-                    Let's build something<br />extraordinary
+        <section id="contact">
+            <div class="contact-premium-wrapper">
+                <h2 class="contact-huge-text" data-aos="fade-up">
+                    Let's build<br />something<br /><span class="accented"
+                        >extraordinary.</span
+                    >
                 </h2>
-                <div class="contact-grid">
-                    <div class="contact-info" data-aos="fade-right">
-                        <div class="contact-item glass">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <div class="contact-label">Email</div>
-                                <div class="contact-value">
-                                    alfaturachmanpahlevi@gmail.com
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-item glass">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div>
-                                <div class="contact-label">LinkedIn</div>
-                                <div class="contact-value">
-                                    alfaturachman maulana pahlevi
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-item glass">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div>
-                                <div class="contact-label">GitHub</div>
-                                <div class="contact-value">
-                                    github.com/alfaturachman
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-item glass">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div class="contact-label">Location</div>
-                                <div class="contact-value">Indonesia</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left">
-                        <form
-                            class="contact-form glass"
-                            style="padding: 32px; border-radius: 24px"
-                            onsubmit="handleSubmit(event)"
+
+                <div
+                    class="contact-premium-info"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
+                    <p class="contact-premium-desc">
+                        I'm currently available for freelance work and open to
+                        new opportunities. Whether you have an idea in mind or
+                        just want to say hi, let's create an impact together.
+                    </p>
+
+                    <div class="contact-premium-links">
+                        <a
+                            href="mailto:alfaturachmanpahlevi@gmail.com"
+                            class="premium-link-item"
                         >
-                            <div class="form-group">
-                                <label class="form-label">Full Name</label>
-                                <input
-                                    type="text"
-                                    class="form-input"
-                                    placeholder="John Doe"
-                                    required
-                                />
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email Address</label>
-                                <input
-                                    type="email"
-                                    class="form-input"
-                                    placeholder="john@email.com"
-                                    required
-                                />
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Message</label>
-                                <textarea
-                                    class="form-input"
-                                    placeholder="Hello Alfaturachman, I would like to..."
-                                ></textarea>
-                            </div>
-                            <button
-                                type="submit"
-                                class="btn-primary"
-                                style="
-                                    width: 100%;
-                                    justify-content: center;
-                                    margin-top: 8px;
-                                "
+                            <span class="premium-link-label">Email</span>
+                            <span class="premium-link-val"
+                                >alfaturachmanpahlevi@gmail.com</span
                             >
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </form>
+                            <i class="fas fa-arrow-right premium-link-icon"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/alfaturachman-maulana-pahlevi-4981302b6/"
+                            target="_blank"
+                            class="premium-link-item"
+                        >
+                            <span class="premium-link-label">LinkedIn</span>
+                            <span class="premium-link-val"
+                                >Alfaturachman Maulana Pahlevi</span
+                            >
+                            <i class="fas fa-arrow-right premium-link-icon"></i>
+                        </a>
+                        <a
+                            href="https://github.com/Alfaturachman"
+                            target="_blank"
+                            class="premium-link-item"
+                        >
+                            <span class="premium-link-label">GitHub</span>
+                            <span class="premium-link-val">@Alfaturachman</span>
+                            <i class="fas fa-arrow-right premium-link-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2266,6 +2314,12 @@
                         ><i class="fab fa-linkedin"></i
                     ></a>
                     <a
+                        href="https://www.instagram.com/al.mavi/"
+                        class="social-btn"
+                        target="_blank"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a
                         href="https://twitter.com/alfaturachman"
                         class="social-btn"
                         target="_blank"
@@ -2277,9 +2331,16 @@
                         ><i class="fas fa-envelope"></i
                     ></a>
                 </div>
-                <p class="footer-copy">
-                    © 2026 Alfaturachman Maulana Pahlevi. Built with care.
-                </p>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <p>© 2026 Alfaturachman Maulana Pahlevi.</p>
+                    </div>
+                    <div class="footer-bottom-right">
+                        <a href="#home" class="back-to-top"
+                            >Back to top <i class="fas fa-arrow-up"></i
+                        ></a>
+                    </div>
+                </div>
             </div>
             <div class="footer-headline">almavi</div>
         </footer>
@@ -2512,13 +2573,7 @@
                     ease: 'power3.out',
                     delay: 0.05,
                 });
-                gsap.from('.hero-sub', {
-                    opacity: 0,
-                    y: 30,
-                    duration: 0.9,
-                    ease: 'power3.out',
-                    delay: 0.35,
-                });
+
                 gsap.from('.hero-ctas', {
                     opacity: 0,
                     y: 20,
@@ -2558,18 +2613,7 @@
                     });
                 });
 
-                // One-scroll snap from Hero to About
-                ScrollTrigger.create({
-                    trigger: '#home',
-                    start: 'top top',
-                    end: 'bottom top',
-                    snap: {
-                        snapTo: 1,
-                        duration: 0.8,
-                        ease: 'power2.inOut',
-                        delay: 0,
-                    },
-                });
+                // One-scroll snap from Hero to About (Removed per user request)
             }
 
             // ===== Cursor =====
@@ -2765,20 +2809,6 @@
                     closeCertModalDirect();
                 }
             });
-
-            // ===== Contact Form =====
-            function handleSubmit(e) {
-                e.preventDefault();
-                const btn = e.target.querySelector('button[type="submit"]');
-                btn.innerHTML = '<i class="fas fa-check"></i> Pesan Terkirim!';
-                btn.style.background = '#22c55e';
-                setTimeout(() => {
-                    btn.innerHTML =
-                        '<i class="fas fa-paper-plane"></i> Kirim Pesan';
-                    btn.style.background = '';
-                    e.target.reset();
-                }, 3000);
-            }
 
             // Smooth scroll for all anchor links
             document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
