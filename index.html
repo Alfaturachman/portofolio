@@ -659,239 +659,300 @@
                 margin-top: 16px;
             }
 
-            /* Skills - Bento */
-            .skills-bento {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-                margin-top: 56px;
-            }
-            .skill-card {
-                padding: 28px 20px;
-                border-radius: 20px;
+            /* Skills - Senior Categorized Layout */
+            .skills-wrapper {
                 display: flex;
                 flex-direction: column;
+                gap: 48px;
+                margin-top: 56px;
+            }
+            .skill-category {
+                display: grid;
+                grid-template-columns: 320px 1fr;
+                gap: 48px;
+                align-items: start;
+                padding-bottom: 48px;
+                border-bottom: 1px solid rgba(26, 22, 16, 0.08);
+            }
+            .skill-category:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            @media (max-width: 900px) {
+                .skill-category {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                    padding-bottom: 32px;
+                }
+            }
+            .category-header {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .category-title {
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: var(--text-primary);
+                letter-spacing: -0.02em;
+            }
+            .category-desc {
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+                line-height: 1.6;
+            }
+            .category-tools {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .tool-pill {
+                display: inline-flex;
                 align-items: center;
                 gap: 12px;
+                padding: 14px 20px;
+                background: var(--glass-bg);
+                backdrop-filter: blur(18px) saturate(160%);
+                border: 1px solid var(--glass-border);
+                border-radius: 16px;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
                 cursor: none;
-                transition: all 0.3s;
-                text-align: center;
             }
-            .skill-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 16px 40px var(--glass-shadow);
+            .tool-pill:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 32px rgba(160, 148, 130, 0.15);
+                border-color: rgba(59, 91, 219, 0.3);
             }
-            .skill-icon {
-                width: 52px;
-                height: 52px;
+            .tool-icon {
+                font-size: 1.3rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-radius: 14px;
-                font-size: 1.6rem;
-                background: var(--accent-blue-soft);
-            }
-            .skill-name {
-                font-size: 0.82rem;
-                font-weight: 600;
-                color: var(--text-secondary);
-            }
-            .skill-card.featured {
-                grid-column: span 2;
-                flex-direction: row;
-                gap: 24px;
-                padding: 28px 32px;
-                text-align: left;
-                align-items: flex-start;
-            }
-            .skill-card.featured .skill-icon {
-                width: 56px;
-                height: 56px;
-                flex-shrink: 0;
-            }
-            .skill-card.featured .skill-desc {
-                font-size: 0.83rem;
-                color: var(--text-muted);
-                margin-top: 4px;
-                line-height: 1.5;
             }
 
-            /* Experience */
+            /* Experience - Premium Redesign */
             #experience {
                 background: var(--bg-secondary);
             }
-            .timeline {
-                margin-top: 56px;
-                position: relative;
-            }
-            .timeline::before {
-                content: '';
-                position: absolute;
-                left: 20px;
-                top: 0;
-                bottom: 0;
-                width: 1.5px;
-                background: linear-gradient(
-                    to bottom,
-                    var(--accent-blue),
-                    transparent
-                );
-            }
-            .timeline-item {
-                padding-left: 60px;
-                padding-bottom: 48px;
-                position: relative;
-            }
-            .timeline-item:last-child {
-                padding-bottom: 0;
-            }
-            .timeline-dot {
-                position: absolute;
-                left: 10px;
-                top: 6px;
-                width: 22px;
-                height: 22px;
-                border-radius: 50%;
-                background: var(--bg-primary);
-                border: 2.5px solid var(--accent-blue);
+            .experience-list {
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                flex-direction: column;
+                gap: 32px;
+                margin-top: 56px;
             }
-            .timeline-dot::after {
-                content: '';
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: var(--accent-blue);
+            .experience-item {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                gap: 40px;
+                align-items: start;
             }
-            .timeline-card {
-                padding: 28px 32px;
-                border-radius: 20px;
+            @media (max-width: 768px) {
+                .experience-item {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
             }
-            .timeline-date {
-                font-size: 0.75rem;
-                font-weight: 600;
-                color: var(--accent-blue);
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
+            .experience-meta {
+                padding-top: 8px;
+            }
+            .experience-date {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                letter-spacing: 0.05em;
                 margin-bottom: 8px;
             }
-            .timeline-title {
-                font-family: 'Outfit', sans-serif;
-                font-size: 1.2rem;
+            .experience-badge {
+                display: inline-block;
+                padding: 6px 12px;
+                font-size: 0.7rem;
                 font-weight: 700;
-                letter-spacing: -0.02em;
-                color: var(--text-primary);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--accent-blue);
+                background: var(--accent-blue-soft);
+                border: 1px solid rgba(59, 91, 219, 0.15);
+                border-radius: 99px;
             }
-            .timeline-org {
-                font-size: 0.85rem;
+            .experience-badge.ghost {
+                background: transparent;
+                border-color: var(--glass-border);
                 color: var(--text-secondary);
-                margin-top: 2px;
-                margin-bottom: 12px;
             }
-            .timeline-desc {
-                font-size: 0.9rem;
+            .experience-content {
+                padding: 32px 40px;
+                border-radius: 20px;
+                position: relative;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                border: 1px solid var(--glass-border);
+                background: var(--glass-bg);
+                backdrop-filter: blur(18px) saturate(160%);
+            }
+            .experience-content:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 40px var(--glass-shadow);
+                border-color: rgba(59, 91, 219, 0.3);
+            }
+            .experience-title {
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                letter-spacing: -0.02em;
+                margin-bottom: 6px;
+            }
+            .experience-org {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--accent-blue);
+                margin-bottom: 20px;
+            }
+            .experience-desc {
+                font-size: 0.95rem;
                 line-height: 1.7;
                 color: var(--text-secondary);
-                font-weight: 300;
+                font-weight: 400;
             }
 
             /* Portfolio */
             .portfolio-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+                gap: 28px;
                 margin-top: 56px;
             }
             .project-card {
-                padding: 28px;
-                border-radius: 20px;
-                cursor: none;
-                transition: all 0.3s;
+                background: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.04);
+                border-radius: 24px;
+                padding: 20px;
+                cursor: none; /* custom cursor */
+                transition:
+                    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 position: relative;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
                 overflow: hidden;
-            }
-            .project-card::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(
-                    135deg,
-                    var(--accent-blue-soft),
-                    transparent
-                );
-                opacity: 0;
-                transition: opacity 0.3s;
-                border-radius: 20px;
             }
             .project-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 20px 48px var(--glass-shadow);
+                transform: translateY(-8px);
+                box-shadow: 0 32px 64px rgba(160, 148, 130, 0.12);
             }
-            .project-card:hover::before {
-                opacity: 1;
-            }
-            .project-img {
+            .project-img-wrapper {
                 width: 100%;
-                aspect-ratio: 16/9;
-                border-radius: 12px;
-                background: var(--bg-secondary);
-                margin-bottom: 20px;
+                aspect-ratio: 16/10;
+                border-radius: 16px;
                 overflow: hidden;
+                position: relative;
+                margin-bottom: 24px;
+                background: var(--bg-secondary);
             }
-            .project-img img {
+            .project-img-wrapper img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                display: block;
+                transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .project-card:hover .project-img-wrapper img {
+                transform: scale(1.05);
+            }
+            .project-content {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                padding: 0 4px 8px 4px;
             }
             .project-title {
                 font-family: 'Outfit', sans-serif;
-                font-size: 1.1rem;
+                font-size: 1.25rem;
                 font-weight: 700;
+                color: var(--text-primary);
                 letter-spacing: -0.02em;
-                margin-bottom: 8px;
+                line-height: 1.3;
+                margin-bottom: 10px;
             }
             .project-desc {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 line-height: 1.6;
                 color: var(--text-secondary);
-                margin-bottom: 16px;
-                font-weight: 300;
+                margin-bottom: 24px;
+                font-weight: 400;
+                flex-grow: 1;
             }
             .project-tags {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 6px;
+                gap: 8px;
+                margin-bottom: 20px;
             }
             .project-tag {
-                padding: 3px 10px;
-                border-radius: 99px;
-                font-size: 0.72rem;
+                padding: 6px 14px;
+                border-radius: 100px;
+                font-size: 0.75rem;
                 font-weight: 600;
-                background: rgba(26, 22, 16, 0.07);
+                background: var(--bg-primary);
                 color: var(--text-secondary);
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+            .project-card:hover .project-tag {
+                background: #fff;
+                border-color: rgba(0, 0, 0, 0.1);
+                color: var(--text-primary);
+            }
+            .project-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 16px;
+                border-top: 1px solid rgba(0, 0, 0, 0.04);
+                margin-top: auto;
+            }
+            .project-link-text {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                opacity: 0.6;
+                transition: opacity 0.3s;
+            }
+            .project-card:hover .project-link-text {
+                opacity: 1;
             }
             .project-arrow {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                width: 32px;
-                height: 32px;
-                background: var(--accent-blue-soft);
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
+                background: var(--bg-primary);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: var(--accent-blue);
-                font-size: 0.75rem;
-                transition: all 0.3s;
+                color: var(--text-primary);
+                font-size: 1rem;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             }
             .project-card:hover .project-arrow {
                 background: var(--accent-blue);
                 color: #fff;
+            }
+            .project-arrow-icon {
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 transform: rotate(-45deg);
+            }
+            .project-card:hover .project-arrow-icon {
+                transform: rotate(0deg);
             }
 
             /* Modal */
@@ -1667,229 +1728,160 @@
                     Tools &amp; technologies<br />I master
                 </h2>
                 <!-- Update Bagian Skills (Baris 816 - 862) -->
-                <div class="skills-bento">
-                    <!-- Python -->
-                    <div class="skill-card glass featured" data-aos="fade-up">
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(55, 118, 171, 0.1);
-                                color: #3776ab;
-                                font-size: 1.8rem;
-                            "
-                        >
-                            <i class="fab fa-python"></i>
+                <div class="skills-wrapper">
+                    <!-- Frontend Architecture -->
+                    <div class="skill-category" data-aos="fade-up">
+                        <div class="category-header">
+                            <h3 class="category-title">
+                                Frontend Architecture
+                            </h3>
+                            <p class="category-desc">
+                                Building resilient, component-driven user
+                                interfaces with modern web standards and
+                                responsive performance in mind.
+                            </p>
                         </div>
-                        <div>
-                            <div
-                                style="
-                                    font-family: 'Outfit', sans-serif;
-                                    font-weight: 700;
-                                    font-size: 1.05rem;
-                                "
-                            >
-                                Python
+                        <div class="category-tools">
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #ff5a1f">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                HTML/CSS
                             </div>
-                            <div class="skill-desc">
-                                Data analysis, AI/ML, and backend automation.
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #f7df1e">
+                                    <i class="fab fa-js"></i>
+                                </div>
+                                JavaScript
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Laravel -->
-                    <div
-                        class="skill-card glass featured"
-                        data-aos="fade-up"
-                        data-aos-delay="50"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(255, 45, 32, 0.1);
-                                color: #ff2d20;
-                                font-size: 1.8rem;
-                            "
-                        >
-                            <i class="fab fa-laravel"></i>
-                        </div>
-                        <div>
-                            <div
-                                style="
-                                    font-family: 'Outfit', sans-serif;
-                                    font-weight: 700;
-                                    font-size: 1.05rem;
-                                "
-                            >
-                                Laravel / PHP
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #4dace8">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                React
                             </div>
-                            <div class="skill-desc">
-                                Full-stack web development, REST API, and
-                                database management.
+                            <div class="tool-pill">
+                                <div class="tool-icon">
+                                    <img
+                                        src="assets/logo/nextjs.svg"
+                                        alt="Next.js"
+                                        style="
+                                            width: 1em;
+                                            height: 1em;
+                                            object-fit: contain;
+                                        "
+                                    />
+                                </div>
+                                Next.js
                             </div>
                         </div>
                     </div>
 
-                    <!-- HTML/CSS -->
+                    <!-- Backend & APIs -->
                     <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="140"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(255, 90, 31, 0.1);
-                                color: #ff5a1f;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-html5"></i>
-                            <i class="fab fa-css3-alt"></i>
-                        </div>
-                        <div class="skill-name">HTML/CSS</div>
-                    </div>
-
-                    <!-- JavaScript -->
-                    <div
-                        class="skill-card glass"
+                        class="skill-category"
                         data-aos="fade-up"
                         data-aos-delay="100"
                     >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(247, 223, 30, 0.1);
-                                color: #f7df1e;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-js"></i>
+                        <div class="category-header">
+                            <h3 class="category-title">Backend &amp; APIs</h3>
+                            <p class="category-desc">
+                                Designing scalable server-side architectures,
+                                robust RESTful APIs, and efficient database
+                                models.
+                            </p>
                         </div>
-                        <div class="skill-name">JavaScript</div>
+                        <div class="category-tools">
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #3776ab">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                Python
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #3b5bdb">
+                                    <i class="fab fa-php"></i>
+                                </div>
+                                PHP
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #ff2d20">
+                                    <i class="fab fa-laravel"></i>
+                                </div>
+                                Laravel
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon">
+                                    <img
+                                        src="assets/logo/codeigniter.svg"
+                                        alt="CodeIgniter"
+                                        style="
+                                            width: 1em;
+                                            height: 1em;
+                                            object-fit: contain;
+                                        "
+                                    />
+                                </div>
+                                CodeIgniter
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #00758f">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                MySQL
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- React -->
+                    <!-- Platform & Tooling -->
                     <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="160"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(77, 172, 232, 0.12);
-                                color: #4dace8;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <div class="skill-name">React</div>
-                    </div>
-
-                    <!-- Next.js -->
-                    <div
-                        class="skill-card glass"
+                        class="skill-category"
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(26, 22, 16, 0.07);
-                                color: #1a1610;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                width="1em"
-                                height="1em"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24ZM12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5C6.20101 1.5 1.5 6.20101 1.5 12C1.5 17.799 6.20101 22.5 12 22.5ZM17.7126 18.3582L9.42878 7.39167H6.99443V16.6083H8.76104V9.69741L16.0379 19.3331C16.6346 19.0559 17.1953 18.7275 17.7126 18.3582ZM16.2995 7.39167H14.5329V15.0212H16.2995V7.39167Z"
-                                />
-                            </svg>
+                        <div class="category-header">
+                            <h3 class="category-title">
+                                Platform &amp; Tooling
+                            </h3>
+                            <p class="category-desc">
+                                Ensuring code quality, version control, and
+                                expanding cross-platform capabilities.
+                            </p>
                         </div>
-                        <div class="skill-name">Next.js</div>
-                    </div>
-
-                    <!-- Kotlin/Mobile -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="180"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(127, 108, 255, 0.12);
-                                color: #7f6cff;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-android"></i>
+                        <div class="category-tools">
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #7f6cff">
+                                    <i class="fab fa-android"></i>
+                                </div>
+                                Kotlin
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #1a1610">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                Git / GitHub
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon" style="color: #7f6cff">
+                                    <i class="fab fa-docker"></i>
+                                </div>
+                                Docker
+                            </div>
+                            <div class="tool-pill">
+                                <div class="tool-icon">
+                                    <img
+                                        src="assets/logo/figma.svg"
+                                        alt="Figma"
+                                        style="
+                                            width: 1em;
+                                            height: 1em;
+                                            object-fit: contain;
+                                        "
+                                    />
+                                </div>
+                                Figma
+                            </div>
                         </div>
-                        <div class="skill-name">Kotlin</div>
-                    </div>
-
-                    <!-- PHP -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="220"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(59, 91, 219, 0.12);
-                                color: #3b5bdb;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-php"></i>
-                        </div>
-                        <div class="skill-name">PHP</div>
-                    </div>
-
-                    <!-- MySQL -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="120"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(0, 117, 143, 0.1);
-                                color: #00758f;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">MySQL</div>
-                    </div>
-
-                    <!-- Git -->
-                    <div
-                        class="skill-card glass"
-                        data-aos="fade-up"
-                        data-aos-delay="240"
-                    >
-                        <div
-                            class="skill-icon"
-                            style="
-                                background: rgba(26, 22, 16, 0.07);
-                                color: #1a1610;
-                                font-size: 1.5rem;
-                            "
-                        >
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="skill-name">Git / GitHub</div>
                     </div>
                 </div>
             </div>
@@ -1902,69 +1894,85 @@
                 <h2 class="section-title">
                     My journey &amp;<br />career history
                 </h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass">
-                            <div class="timeline-date">2025 — Present</div>
-                            <div class="timeline-title">
+                <div class="experience-list">
+                    <div class="experience-item" data-aos="fade-up">
+                        <div class="experience-meta">
+                            <div class="experience-date">2025 — Present</div>
+                            <div class="experience-badge">Current</div>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">
                                 Data & AI Developer
+                            </h3>
+                            <div class="experience-org">
+                                <i class="fas fa-briefcase"></i> Freelance /
+                                Independent Projects
                             </div>
-                            <div class="timeline-org">
-                                Freelance / Independent Projects
-                            </div>
-                            <p class="timeline-desc">
-                                Developing data-driven solutions ranging from
-                                ETL pipelines, analytic dashboards, to machine
-                                learning models for various clients and personal
-                                projects.
+                            <p class="experience-desc">
+                                I architect scalable data pipelines and
+                                predictive machine learning models. Moving
+                                beyond research, I specialize in productionizing
+                                these models, building intuitive analytic
+                                dashboards, and delivering actionable
+                                intelligence that solves tangible business
+                                challenges.
                             </p>
                         </div>
                     </div>
 
                     <div
-                        class="timeline-item"
+                        class="experience-item"
                         data-aos="fade-up"
                         data-aos-delay="100"
                     >
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass">
-                            <div class="timeline-date">2024 — 2025</div>
-                            <div class="timeline-title">
+                        <div class="experience-meta">
+                            <div class="experience-date">2024 — 2025</div>
+                            <div class="experience-badge ghost">Internship</div>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">
                                 Web Developer Intern
+                            </h3>
+                            <div class="experience-org">
+                                <i class="fas fa-university"></i> UDINUS Faculty
+                                of Engineering
                             </div>
-                            <div class="timeline-org">
-                                UDINUS Faculty of Engineering
-                            </div>
-                            <p class="timeline-desc">
-                                Built an academic information system platform
-                                using web technologies in a collaborative
-                                environment. Worked with IT staff and lecturers
-                                to ensure precise feature integration and
-                                assisted in regular database management.
+                            <p class="experience-desc">
+                                Engineered a core academic information system
+                                collaborating directly with stakeholders. I
+                                architected the relational database schema,
+                                optimized RESTful integrations, and built a
+                                resilient frontend to support the operational
+                                workflow of university staff and lecturers.
                             </p>
                         </div>
                     </div>
 
                     <div
-                        class="timeline-item"
+                        class="experience-item"
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass">
-                            <div class="timeline-date">2022 - 2025</div>
-                            <div class="timeline-title">
-                                Associate Degree (D3)
+                        <div class="experience-meta">
+                            <div class="experience-date">2022 — 2025</div>
+                            <div class="experience-badge ghost">Education</div>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">
+                                Associate Degree in Informatics
+                            </h3>
+                            <div class="experience-org">
+                                <i class="fas fa-graduation-cap"></i> Dian
+                                Nuswantoro University
                             </div>
-                            <div class="timeline-org">
-                                Dian Nuswantoro University Semarang
-                            </div>
-                            <p class="timeline-desc">
-                                IT Associate graduate focusing on Software
-                                Development. Experienced in data management
-                                system projects, Android app development, and
-                                full-stack web architecture during studies.
+                            <p class="experience-desc">
+                                Graduated with a focus on Software Engineering.
+                                Instead of just theoretical concepts, I spent my
+                                academic career shipping real
+                                applications—ranging from full-stack web
+                                platforms to native Android apps—mastering state
+                                management, scalable database design, and
+                                end-to-end deployment.
                             </p>
                         </div>
                     </div>
@@ -1988,37 +1996,26 @@
             <div class="section-max">
                 <div class="section-eyebrow">Certificates</div>
                 <h2 class="section-title">Certificates I have<br />earned</h2>
-                <div class="repos-grid">
+                <div class="portfolio-grid">
                     <div
-                        class="repo-card glass"
+                        class="project-card"
                         data-aos="fade-up"
                         data-aos-delay="160"
                     >
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> IBM DevOps and Software
-                            Engineering
-                        </div>
                         <div
+                            class="project-img-wrapper"
                             onclick="
                                 openCertModal(
                                     'assets/certificate/Specializations/IBM%20DevOps%20and%20Software%20Engineering.pdf',
                                     'IBM DevOps and Software Engineering',
                                 )
                             "
-                            style="
-                                margin: 16px 0;
-                                border-radius: 12px;
-                                overflow: hidden;
-                                border: 1px solid var(--glass-border);
-                                background: #fff;
-                                cursor: pointer;
-                                position: relative;
-                            "
+                            style="cursor: pointer"
                         >
                             <iframe
                                 src="assets/certificate/Specializations/IBM%20DevOps%20and%20Software%20Engineering.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"
                                 width="100%"
-                                height="220px"
+                                height="100%"
                                 style="
                                     border: none;
                                     display: block;
@@ -2057,73 +2054,70 @@
                                 ></i>
                             </div>
                         </div>
-                        <a
-                            href="https://www.coursera.org/account/accomplishments/professional-cert/1OVGPIEULHS5"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style="
-                                display: inline-flex;
-                                align-items: center;
-                                gap: 8px;
-                                font-size: 0.85rem;
-                                font-weight: 600;
-                                color: var(--accent-blue);
-                                text-decoration: none;
-                                margin-bottom: 12px;
-                                cursor: pointer;
-                            "
-                        >
-                            View Credential
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <p class="repo-desc">
-                            Professional certification from IBM that covers the
-                            fundamentals of DevOps and software engineering,
-                            including version control, CI/CD pipelines, and
-                            software testing.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #1e6cbb"
-                                ></span
-                                >IBM
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag"
+                                    ><i
+                                        class="fas fa-building"
+                                        style="margin-right: 4px"
+                                    ></i
+                                    >IBM</span
+                                >
+                                <span class="project-tag"
+                                    ><i
+                                        class="fas fa-calendar-alt"
+                                        style="margin-right: 4px"
+                                    ></i
+                                    >2026</span
+                                >
                             </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2026
-                            </div>
+                            <h3 class="project-title">
+                                IBM DevOps and Software Engineering
+                            </h3>
+                            <p class="project-desc">
+                                Professional certification from IBM that covers
+                                the fundamentals of DevOps and software
+                                engineering, including version control, CI/CD
+                                pipelines, and software testing.
+                            </p>
+                            <a
+                                href="https://www.coursera.org/account/accomplishments/professional-cert/1OVGPIEULHS5"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-footer"
+                                style="text-decoration: none"
+                            >
+                                <span class="project-link-text"
+                                    >View Credential</span
+                                >
+                                <div class="project-arrow">
+                                    <i
+                                        class="fas fa-arrow-right project-arrow-icon"
+                                    ></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
+
                     <div
-                        class="repo-card glass"
+                        class="project-card"
                         data-aos="fade-up"
-                        data-aos-delay="80"
+                        data-aos-delay="240"
                     >
-                        <div class="repo-name">
-                            <i class="fas fa-award"></i> IBM Machine Learning
-                        </div>
                         <div
+                            class="project-img-wrapper"
                             onclick="
                                 openCertModal(
                                     'assets/certificate/Specializations/IBM%20Machine%20Learning.pdf',
                                     'IBM Machine Learning',
                                 )
                             "
-                            style="
-                                margin: 16px 0;
-                                border-radius: 12px;
-                                overflow: hidden;
-                                border: 1px solid var(--glass-border);
-                                background: #fff;
-                                cursor: pointer;
-                                position: relative;
-                            "
+                            style="cursor: pointer"
                         >
                             <iframe
                                 src="assets/certificate/Specializations/IBM%20Machine%20Learning.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"
                                 width="100%"
-                                height="220px"
+                                height="100%"
                                 style="
                                     border: none;
                                     display: block;
@@ -2162,42 +2156,46 @@
                                 ></i>
                             </div>
                         </div>
-                        <a
-                            href="https://www.coursera.org/account/accomplishments/professional-cert/G9QD5BA2LI68"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style="
-                                display: inline-flex;
-                                align-items: center;
-                                gap: 8px;
-                                font-size: 0.85rem;
-                                font-weight: 600;
-                                color: var(--accent-blue);
-                                text-decoration: none;
-                                margin-bottom: 12px;
-                                cursor: pointer;
-                            "
-                        >
-                            View Credential
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <p class="repo-desc">
-                            Professional certification from IBM that covers the
-                            fundamentals of machine learning, including
-                            supervised and unsupervised learning algorithms, and
-                            model evaluation.
-                        </p>
-                        <div class="repo-meta">
-                            <div class="repo-lang">
-                                <span
-                                    class="lang-dot"
-                                    style="background: #1e6cbb"
-                                ></span
-                                >IBM
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag"
+                                    ><i
+                                        class="fas fa-building"
+                                        style="margin-right: 4px"
+                                    ></i
+                                    >IBM</span
+                                >
+                                <span class="project-tag"
+                                    ><i
+                                        class="fas fa-calendar-alt"
+                                        style="margin-right: 4px"
+                                    ></i
+                                    >2026</span
+                                >
                             </div>
-                            <div class="repo-stars">
-                                <i class="fas fa-calendar-alt"></i> 2026
-                            </div>
+                            <h3 class="project-title">IBM Machine Learning</h3>
+                            <p class="project-desc">
+                                Professional certification from IBM that covers
+                                the fundamentals of machine learning, including
+                                supervised and unsupervised learning algorithms,
+                                and model evaluation.
+                            </p>
+                            <a
+                                href="https://www.coursera.org/account/accomplishments/professional-cert/G9QD5BA2LI68"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-footer"
+                                style="text-decoration: none"
+                            >
+                                <span class="project-link-text"
+                                    >View Credential</span
+                                >
+                                <div class="project-arrow">
+                                    <i
+                                        class="fas fa-arrow-right project-arrow-icon"
+                                    ></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2431,7 +2429,7 @@
                 },
                 {
                     image: 'assets/images/projects/project-portofolio.png',
-                    title: 'Portfolio MK FTDINUS',
+                    title: 'Portfolio MataKuliah FTDINUS',
                     cardDesc:
                         'Management and documentation system for the entire academic cycle of FT courses.',
                     desc: 'Management and documentation system for the entire academic cycle of FT courses. Enables tracking of syllabi, course materials, and assignments in one integrated platform for lecturers and students.',
@@ -2441,7 +2439,7 @@
                 },
                 {
                     image: 'assets/images/projects/project-crumb.png',
-                    title: 'Crumb Rubber Inventory Management',
+                    title: 'Crumb Rubber Inventory',
                     cardDesc:
                         'Inventory management system for the crumb rubber industry, including raw material recording, processed products, and reports.',
                     desc: 'Inventory management system for the crumb rubber industry, including raw material recording, processed products, and real-time stock reports to improve factory operational efficiency.',
@@ -2451,17 +2449,17 @@
                 },
                 {
                     image: 'assets/images/projects/project-renstra.png',
-                    title: 'RENSTRA FTDINUS',
+                    title: 'Rencana Strategis FTDINUS',
                     cardDesc:
-                        'Strategic Plan Information System (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP).',
-                    desc: 'Strategic Plan Information System (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP). Facilitates the university in monitoring annual target achievements.',
+                        'Information System for Strategic Plan (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP).',
+                    desc: 'Information System for Strategic Plan (Renstra) for monitoring and reporting Key Performance Indicators (KPI/IKU) and lecturer workload (EWMP). Facilitates the university in monitoring annual target achievements.',
                     tags: ['CodeIgniter', 'PHP', 'Bootstrap', 'MySQL'],
                     demo: '#',
                     github: 'https://github.com/Alfaturachman/renstra_ftdinus',
                 },
                 {
                     image: 'assets/images/projects/project-medical.png',
-                    title: 'Medical Checkup Management System',
+                    title: 'Medical Checkup System',
                     cardDesc:
                         'A healthcare management platform integrated with IoT-based self-service health kiosks for monitoring and recording patient health data.',
                     desc: 'A web-based healthcare management system developed to support Anjungan Kesehatan Mandiri (Independent Health Kiosks) using IoT technology. Health data collected through the kiosks is transmitted via API and stored within the platform for monitoring, analysis, and reporting. This project was a collaborative initiative between FT Universitas Dian Nuswantoro and the Semarang Health Department to enhance digital healthcare services and improve public access to health monitoring.',
@@ -2488,17 +2486,29 @@
                 grid.innerHTML = projects
                     .map(
                         (p, i) => `
-                    <div class="project-card glass" data-aos="fade-up" data-aos-delay="${i * 50}" onclick="openModal(${i})">
-                        <div class="project-arrow">
-                            <i class="fas fa-arrow-up-right"></i>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="${(i % 3) * 100}" onclick="openModal(${i})">
+                        <div class="project-img-wrapper">
+                            <img src="${p.image}" alt="${p.title}" loading="lazy">
                         </div>
-                        <div class="project-img">
-                            <img src="${p.image}" alt="${p.title}">
-                        </div>
-                        <div class="project-title">${p.title}</div>
-                        <p class="project-desc">${p.cardDesc}</p>
-                        <div class="project-tags">
-                            ${p.tags.map((t) => `<span class="project-tag">${t}</span>`).join('')}
+                        <div class="project-content">
+                            <div class="project-tags">
+                                ${p.tags
+                                    .slice(0, 3)
+                                    .map(
+                                        (t) =>
+                                            `<span class="project-tag">${t}</span>`,
+                                    )
+                                    .join('')}
+                                ${p.tags.length > 3 ? `<span class="project-tag">+${p.tags.length - 3}</span>` : ''}
+                            </div>
+                            <h3 class="project-title">${p.title}</h3>
+                            <p class="project-desc">${p.cardDesc}</p>
+                            <div class="project-footer">
+                                <span class="project-link-text">View Details</span>
+                                <div class="project-arrow">
+                                    <i class="fas fa-arrow-right project-arrow-icon"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `,
