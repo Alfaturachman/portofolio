@@ -476,15 +476,14 @@
                 position: relative;
                 z-index: 10;
                 width: 100%;
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                display: flex;
+                justify-content: space-between;
                 gap: 24px;
                 border-top: 1.5px solid var(--accent);
                 padding-top: 24px;
             }
             @media (max-width: 768px) {
                 .hero-bottom-row {
-                    grid-template-columns: repeat(2, 1fr);
                     gap: 16px;
                 }
             }
@@ -492,6 +491,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            .hero-meta-item:last-child {
+                align-items: flex-end;
+                text-align: right;
             }
             .hero-meta-label {
                 font-family: 'Plus Jakarta Sans', sans-serif;
@@ -1504,19 +1507,6 @@
                     <div class="hero-meta-label">Infrastructure</div>
                     <div class="hero-meta-val">
                         DevOps and Software Engineering
-                    </div>
-                </div>
-                <div class="hero-meta-item">
-                    <div class="hero-meta-label">Location</div>
-                    <div class="hero-meta-val">Semarang, Indonesia</div>
-                </div>
-                <div class="hero-meta-item">
-                    <div class="hero-meta-label">Contact</div>
-                    <div
-                        class="hero-meta-val"
-                        style="font-size: 0.72rem; word-break: break-all"
-                    >
-                        alfaturachmanpahlevi@gmail.com
                     </div>
                 </div>
             </div>
